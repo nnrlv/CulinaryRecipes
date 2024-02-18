@@ -3,9 +3,71 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B7664AD8-55BE-48EC-B816-A76FD9584B78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{24938363-157D-41A2-88DE-8E8646D29417}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Systems", "Systems", "{5174997B-06E5-487D-B977-1AA302BACB0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B6880CE0-F757-46E1-A6A7-405061B9CB86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{00E38792-7D35-4662-AD76-C3677242AA03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{719892B5-8F71-4BA4-A517-80EDD67D7394}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{D220FED2-2BD0-4A65-B076-8D962E588564}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Logger", "Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj", "{32226270-F651-47B4-AC7C-A63AA7534E6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Settings", "Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj", "{F20B9939-D52E-4329-9491-06A5F1541948}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Api", "Systems\Api\CulinaryRecipes.Api\CulinaryRecipes.Api.csproj", "{5316DD9D-EDF3-4447-982F-28AA6E8357B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Api.Settings", "Systems\Api\CulinaryRecipes.Api.Settings\CulinaryRecipes.Api.Settings.csproj", "{C930FA04-40BA-47F2-B094-BDB06BC68093}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Common", "Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj", "{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32226270-F651-47B4-AC7C-A63AA7534E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32226270-F651-47B4-AC7C-A63AA7534E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32226270-F651-47B4-AC7C-A63AA7534E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32226270-F651-47B4-AC7C-A63AA7534E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20B9939-D52E-4329-9491-06A5F1541948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20B9939-D52E-4329-9491-06A5F1541948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20B9939-D52E-4329-9491-06A5F1541948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20B9939-D52E-4329-9491-06A5F1541948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5316DD9D-EDF3-4447-982F-28AA6E8357B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5316DD9D-EDF3-4447-982F-28AA6E8357B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5316DD9D-EDF3-4447-982F-28AA6E8357B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5316DD9D-EDF3-4447-982F-28AA6E8357B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C930FA04-40BA-47F2-B094-BDB06BC68093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C930FA04-40BA-47F2-B094-BDB06BC68093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C930FA04-40BA-47F2-B094-BDB06BC68093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C930FA04-40BA-47F2-B094-BDB06BC68093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00E38792-7D35-4662-AD76-C3677242AA03} = {5174997B-06E5-487D-B977-1AA302BACB0D}
+		{719892B5-8F71-4BA4-A517-80EDD67D7394} = {5174997B-06E5-487D-B977-1AA302BACB0D}
+		{D220FED2-2BD0-4A65-B076-8D962E588564} = {5174997B-06E5-487D-B977-1AA302BACB0D}
+		{32226270-F651-47B4-AC7C-A63AA7534E6F} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
+		{F20B9939-D52E-4329-9491-06A5F1541948} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
+		{5316DD9D-EDF3-4447-982F-28AA6E8357B6} = {00E38792-7D35-4662-AD76-C3677242AA03}
+		{C930FA04-40BA-47F2-B094-BDB06BC68093} = {00E38792-7D35-4662-AD76-C3677242AA03}
+		{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65} = {24938363-157D-41A2-88DE-8E8646D29417}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}
