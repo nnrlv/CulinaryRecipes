@@ -10,6 +10,10 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
 	<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.0.0" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
 	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
 	<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
@@ -24,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
+    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
+    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />

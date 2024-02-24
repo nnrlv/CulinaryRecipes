@@ -2,6 +2,8 @@ using CulinaryRecipes.Api.Configuration;
 using CulinaryRecipes.Services.Logger;
 using CulinaryRecipes.Services.Settings;
 using CulinaryRecipes.Settings;
+using CulinaryRecipes.Context;
+using CulinaryRecipes.Context.Seeder;
 
 var mainSettings = Settings.Load<MainSettings>("Main");
 var logSettings = Settings.Load<LogSettings>("Log");
@@ -15,6 +17,8 @@ builder.Services.AddRazorPages();
 builder.Services.RegisterServices();
 
 builder.AddAppLogger(mainSettings, logSettings);
+
+builder.Services.AddAppDbContext(builder.Configuration);
 
 builder.Services.AddAppSwagger(mainSettings, swaggerSettings);
 
@@ -41,6 +45,10 @@ app.UseAppCors();
 app.UseAppControllerAndViews();
 
 app.UseAppSwagger();
+
+DbInitializer.Execute(app.Services);
+
+DbSeeder.Execute(app.Services);
 
 var logger = app.Services.GetRequiredService<IAppLogger>();
 

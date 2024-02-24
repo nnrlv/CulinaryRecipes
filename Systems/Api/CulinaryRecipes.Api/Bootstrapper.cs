@@ -1,5 +1,6 @@
 ﻿using CulinaryRecipes.Services.Logger;
 using CulinaryRecipes.Services.Settings;
+using CulinaryRecipes.Context.Seeder;
 
 public static class Bootstrapper
 {
@@ -9,7 +10,8 @@ public static class Bootstrapper
             .AddMainSettings()
             .AddSwaggerSettings()
             .AddLogSettings()
-            .AddAppLogger();
+            .AddAppLogger()
+            .AddDbSeeder();
         return service;
     }
 }

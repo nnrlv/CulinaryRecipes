@@ -25,8 +25,6 @@ public static class LoggerConfiguration
         // Log level
         if (!Enum.TryParse(logSettings.Level, out LogLevel level)) level = LogLevel.Information;
 
-        ;
-
         var serilogLevel = level switch
         {
             LogLevel.Verbose => LogEventLevel.Verbose,
