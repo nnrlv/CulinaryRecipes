@@ -1,20 +1,25 @@
+using CulinaryRecipes.Common;
+using CulinaryRecipes.Services.Settings;
+using CulinaryRecipes.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Reflection;
 
 namespace CulinaryNotes.Api.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        [BindProperty]
+        public bool OpenApiEnabled => settings.Enabled;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        [BindProperty]
+        public string Version => Assembly.GetExecutingAssembly().GetAssemblyVersion();
+
+        private readonly SwaggerSettings settings;
+
+        public IndexModel(SwaggerSettings settings)
         {
-            _logger = logger;
-        }
-
-        public void OnGet()
-        {
-
+            this.settings = settings;
         }
     }
 }

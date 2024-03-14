@@ -29,15 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Api.Setting
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Common", "Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj", "{7A4C2CCC-D9CF-4C2C-B404-8AB637C52B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Context.Entities", "Data\CulinaryRecipes.Context.Entities\CulinaryRecipes.Context.Entities.csproj", "{0C564171-4A07-4C42-BE32-9927C63D9802}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Entities", "Data\CulinaryRecipes.Context.Entities\CulinaryRecipes.Context.Entities.csproj", "{0C564171-4A07-4C42-BE32-9927C63D9802}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Context.Seeder", "Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj", "{5AF10E92-7047-438F-9CDD-B54346AE9E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Seeder", "Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj", "{5AF10E92-7047-438F-9CDD-B54346AE9E7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Context", "Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj", "{64B97020-B336-4873-ADD0-6A75C1401EB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context", "Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj", "{64B97020-B336-4873-ADD0-6A75C1401EB9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{916F722A-77AE-410D-BC2D-19A8E2314DFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Context.Migrations.PgSQL", "CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.PgSQL", "CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Services.Ingredients", "Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj", "{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{64B97020-B336-4873-ADD0-6A75C1401EB9} = {B7664AD8-55BE-48EC-B816-A76FD9584B78}
 		{916F722A-77AE-410D-BC2D-19A8E2314DFF} = {B7664AD8-55BE-48EC-B816-A76FD9584B78}
 		{0492086F-BD1E-449A-A7F3-B33B8EFE57C3} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
+		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}
