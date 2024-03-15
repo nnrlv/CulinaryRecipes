@@ -39,7 +39,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.PgSQL", "CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{0492086F-BD1E-449A-A7F3-B33B8EFE57C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Services.Ingredients", "Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj", "{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Ingredients", "Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj", "{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{B2E043EF-D272-4958-BC30-91050176995E}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+		env.api = env.api
+		env.worker = env.worker
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
