@@ -4,9 +4,6 @@ services:
 
   culinaryrecipes_postgresql:
     image: postgres:14.1
-    
-  # netschool_rabbitmq:
-  #   image: rabbitmq:management
             
   culinaryrecipes_api:
     image: ${DOCKER_REGISTRY-}culinaryrecipesapi
@@ -15,24 +12,12 @@ services:
       dockerfile: Systems/Api/CulinaryRecipes.Api/Dockerfile
     depends_on:
       - culinaryrecipes_postgresql
-      # - netschool_rabbitmq
 
-  # dsrnetschool_worker_1:
-  #   image: ${DOCKER_REGISTRY-}netschoolworker
-  #   build:
-  #     context: .
-  #     dockerfile: Systems/Worker/NetSchool.Worker/Dockerfile
-  #   depends_on:
-  #     - netschool_postgresql
-  #     - netschool_rabbitmq
-  #     - netschool_api
-
-  # dsrnetschool_worker_2:
-  #   image: ${DOCKER_REGISTRY-}netschoolworker
-  #   build:
-  #     context: .
-  #     dockerfile: Systems/Worker/NetSchool.Worker/Dockerfile
-  #   depends_on:
-  #     - netschool_postgresql
-  #     - netschool_rabbitmq
-  #     - netschool_api 
+  culinaryrecipes_identity:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesidentity
+    build:
+      context: .
+      dockerfile: Systems/Identity/CulinaryRecipes.Identity/Dockerfile
+    depends_on:
+      - culinaryrecipes_postgresql
+      - culinaryrecipes_api

@@ -8,6 +8,7 @@ using CulinaryRecipes.Context.Seeder;
 var mainSettings = Settings.Load<MainSettings>("Main");
 var logSettings = Settings.Load<LogSettings>("Log");
 var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
+var identitySettings = Settings.Load<IdentitySettings>("Identity");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,7 @@ builder.AddAppLogger(mainSettings, logSettings);
 
 builder.Services.AddAppDbContext(builder.Configuration);
 
-builder.Services.AddAppSwagger(mainSettings, swaggerSettings);
+builder.Services.AddAppSwagger(identitySettings, mainSettings, swaggerSettings);
 
 builder.Services.AddAppAutoMappers();
 
@@ -29,6 +30,8 @@ builder.Services.AddAppValidator();
 builder.Services.AddAppHealthChecks();
 
 builder.Services.AddAppCors();
+
+builder.Services.AddAppAuth(identitySettings);
 
 builder.Services.AddAppControllerAndViews();
 
@@ -41,6 +44,8 @@ var app = builder.Build();
 app.UseAppHealthChecks();
 
 app.UseAppCors();
+
+app.UseAppAuth();
 
 app.UseAppControllerAndViews();
 

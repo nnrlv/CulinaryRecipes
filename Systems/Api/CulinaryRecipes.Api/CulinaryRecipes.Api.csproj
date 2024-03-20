@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
 	<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.0.0" />
@@ -27,18 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
+    <ProjectReference Include="..\..\..\Data\CulinaryNotes.Conext.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
-    <ProjectReference Include="..\CulinaryNotes.Api.Settings\CulinaryRecipes.Api.Settings.csproj" />
     <ProjectReference Include="..\CulinaryRecipes.Api.Settings\CulinaryRecipes.Api.Settings.csproj" />
   </ItemGroup>
 

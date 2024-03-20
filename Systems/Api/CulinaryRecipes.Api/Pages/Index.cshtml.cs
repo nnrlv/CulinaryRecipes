@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;
 
-namespace CulinaryNotes.Api.Pages
+namespace CulinaryRecipes.Api.Pages
 {
     public class IndexModel : PageModel
     {

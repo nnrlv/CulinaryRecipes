@@ -12,16 +12,6 @@ services:
       - shared_culinaryrecipes_net
     volumes:      
       - ~/.docker-conf/postgresql/data/:/var/lib/postgresql/data
-
-  # netschool_rabbitmq:
-  #   ports:
-  #     - "5672:5672"
-  #     - "5673:5673"
-  #     - "15672:15672" 
-  #   networks:
-  #     - shared_netschool_net
-  #   volumes:      
-  #     - ./rabbitmq:/var/lib/rabbitmq
     
 
   culinaryrecipes_api:
@@ -32,22 +22,13 @@ services:
     env_file:
       - env.api
 
-  # dsrnetschool_worker_1:
-  #   networks:
-  #     - shared_netschool_net
-  #   ports:
-  #     - "10001:8080"
-  #   env_file:
-  #     - env.worker
-
-  # dsrnetschool_worker_2:
-  #   networks:
-  #     - shared_netschool_net
-  #   ports:
-  #     - "10002:8080"
-  #   env_file:
-  #     - env.worker
-
+  culinaryrecipes_identity:
+    ports:
+      - "10001:8080"
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.identity
 
 networks:
   shared_culinaryrecipes_net:
