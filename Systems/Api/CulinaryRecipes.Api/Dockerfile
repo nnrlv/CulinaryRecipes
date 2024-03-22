@@ -9,14 +9,15 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Systems/Api/CulinaryRecipes.Api/CulinaryRecipes.Api.csproj", "Systems/Api/CulinaryRecipes.Api/"]
-COPY ["Data/CulinaryRecipes.Context.Seeder/CulinaryRecipes.Context.Seeder.csproj", "Data/CulinaryRecipes.Context.Seeder/"]
-COPY ["Services/CulinaryRecipes.Services.UserAccount/CulinaryRecipes.Services.UserAccounts.csproj", "Services/CulinaryRecipes.Services.UserAccount/"]
+COPY ["Data/CulinaryNotes.Conext.Migrations/CulinaryRecipes.Context.Migrations.PgSQL/CulinaryRecipes.Context.Migrations.PgSQL.csproj", "Data/CulinaryNotes.Conext.Migrations/CulinaryRecipes.Context.Migrations.PgSQL/"]
 COPY ["Data/CulinaryRecipes.Context/CulinaryRecipes.Context.csproj", "Data/CulinaryRecipes.Context/"]
 COPY ["Services/CulinaryRecipes.Services.Settings/CulinaryRecipes.Services.Settings.csproj", "Services/CulinaryRecipes.Services.Settings/"]
 COPY ["Shared/CulinaryRecipes.Common/CulinaryRecipes.Common.csproj", "Shared/CulinaryRecipes.Common/"]
 COPY ["Data/CulinaryRecipes.Context.Entities/CulinaryRecipes.Context.Entities.csproj", "Data/CulinaryRecipes.Context.Entities/"]
+COPY ["Data/CulinaryRecipes.Context.Seeder/CulinaryRecipes.Context.Seeder.csproj", "Data/CulinaryRecipes.Context.Seeder/"]
 COPY ["Services/CulinaryRecipes.Ingredients/CulinaryRecipes.Services.Ingredients.csproj", "Services/CulinaryRecipes.Ingredients/"]
 COPY ["Services/CulinaryRecipes.Services.Logger/CulinaryRecipes.Services.Logger.csproj", "Services/CulinaryRecipes.Services.Logger/"]
+COPY ["Services/CulinaryRecipes.Services.UserAccounts/CulinaryRecipes.Services.UserAccounts.csproj", "Services/CulinaryRecipes.Services.UserAccounts/"]
 COPY ["Systems/Api/CulinaryRecipes.Api.Settings/CulinaryRecipes.Api.Settings.csproj", "Systems/Api/CulinaryRecipes.Api.Settings/"]
 RUN dotnet restore "./Systems/Api/CulinaryRecipes.Api/./CulinaryRecipes.Api.csproj"
 COPY . .

@@ -1,4 +1,4 @@
-﻿namespace NetSchool.Identity
+﻿namespace CulinaryRecipes.Identity
 {
     public partial class Program
     {

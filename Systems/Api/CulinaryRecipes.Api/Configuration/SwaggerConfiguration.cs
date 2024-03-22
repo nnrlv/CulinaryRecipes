@@ -71,7 +71,8 @@ public static class SwaggerConfiguration
                         Scopes = new Dictionary<string, string>
                         {
                             { AppScopes.IngredientsRead, "Allowed to read ingredients data" },
-                            { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" }
+                            { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" },
+                            { AppScopes.UserAccountsRead, "Allowed to read user accounts data" }
                         }
                     },
 
@@ -81,7 +82,8 @@ public static class SwaggerConfiguration
                         Scopes = new Dictionary<string, string>
                         {
                             { AppScopes.IngredientsRead, "Allowed to read ingredients data" },
-                            { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" }
+                            { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" },
+                            { AppScopes.UserAccountsRead, "Allowed to read user accounts data" }
                         }
                     }
                 }

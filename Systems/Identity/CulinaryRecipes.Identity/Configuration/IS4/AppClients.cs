@@ -23,7 +23,8 @@ public static class AppClients
 
                 AllowedScopes = {
                     AppScopes.IngredientsRead,
-                    AppScopes.IngredientsWrite
+                    AppScopes.IngredientsWrite,
+                    AppScopes.UserAccountsRead
                 }
             }
             ,

@@ -2,6 +2,7 @@
 using CulinaryRecipes.Services.Settings;
 using CulinaryRecipes.Context.Seeder;
 using CulinaryRecipes.Services.Ingredients;
+using CulinaryRecipes.Services.UserAccounts;
 
 public static class Bootstrapper
 {
@@ -14,7 +15,8 @@ public static class Bootstrapper
             .AddIdentitySettings()
             .AddAppLogger()
             .AddDbSeeder()
-            .AddIngredientService();
+            .AddIngredientService()
+            .AddUserAccountService();
         return service;
     }
 }

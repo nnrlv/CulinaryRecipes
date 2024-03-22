@@ -9,6 +9,7 @@ public static class AppApiScopes
         new List<ApiScope>
         {
             new ApiScope(AppScopes.IngredientsRead, "Allowed to read ingredients data"),
-            new ApiScope(AppScopes.IngredientsWrite, "Allowed to write ingredients data")
+            new ApiScope(AppScopes.IngredientsWrite, "Allowed to write ingredients data"),
+            new ApiScope(AppScopes.UserAccountsRead, "Allowed to read user accounts data")
         };
 }
