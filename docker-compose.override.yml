@@ -30,6 +30,22 @@ services:
     env_file:
       - env.identity
 
+  culinaryrecipes_rabbitmq:
+    ports:
+      - "5672:5672"
+      - "5673:5673"
+      - "15672:15672"
+    networks:
+      - shared_culinaryrecipes_net
+    volumes:
+      - ./.rabbitmq:/var/lib/rabbitmq
+
+  culinaryrecipes_emailsenderworker:
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.emailsenderworker
+
 networks:
   shared_culinaryrecipes_net:
     name: culinary_recipes

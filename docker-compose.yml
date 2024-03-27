@@ -21,3 +21,15 @@ services:
     depends_on:
       - culinaryrecipes_postgresql
       - culinaryrecipes_api
+
+  culinaryrecipes_rabbitmq:
+    image: rabbitmq:management
+
+  culinaryrecipes_emailsenderworker:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesemailsenderworker
+    build:
+      context: .
+      dockerfile: Systems/Workers/CulinaryRecipes.Workers.EmailSenderWorker/Dockerfile
+    depends_on:
+      - culinaryrecipes_rabbitmq
+      - culinaryrecipes_api

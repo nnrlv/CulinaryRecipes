@@ -5,8 +5,13 @@ using CulinaryRecipes.Common.Exceptions;
 using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
 using CulinaryRecipes.Context.Entities;
+using CulinaryRecipes.Services.Actions;
+using CulinaryRecipes.Services.EmailSender;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Encodings.Web;
 
 public class UserAccountService : IUserAccountService
 {
@@ -14,18 +19,25 @@ public class UserAccountService : IUserAccountService
     private readonly IMapper mapper;
     private readonly UserManager<User> userManager;
     private readonly IModelValidator<CreateUserAccountModel> registerUserAccountModelValidator;
+    private readonly IAction action;
+
+    private readonly IUrlHelper urlHelper;
+    private readonly IHttpContextAccessor httpContextAccessor;
+    private readonly HtmlEncoder htmlEncoder;
 
     public UserAccountService(
         IMapper mapper,
         IDbContextFactory<MainDbContext> dbContextFactory,
-        UserManager<User> userManager, 
-        IModelValidator<CreateUserAccountModel> registerUserAccountModelValidator
+        UserManager<User> userManager,
+        IModelValidator<CreateUserAccountModel> registerUserAccountModelValidator,
+        IAction action
     )
     {
         this.mapper = mapper;
         this.dbContextFactory = dbContextFactory;
         this.userManager = userManager;
         this.registerUserAccountModelValidator = registerUserAccountModelValidator;
+        this.action = action;
     }
 
     public async Task<bool> IsEmpty()
@@ -35,8 +47,6 @@ public class UserAccountService : IUserAccountService
 
     public async Task<UserAccountModel> Create(CreateUserAccountModel model)
     {
-        // TODO: добавить подтверждение электронной почты
-
         registerUserAccountModelValidator.Check(model);
 
         var user = await userManager.FindByEmailAsync(model.Email);
@@ -49,9 +59,8 @@ public class UserAccountService : IUserAccountService
             Name = model.Name,
             UserName = model.Email,
             Email = model.Email,
-            EmailConfirmed = true,
-            PhoneNumber = null,
-            PhoneNumberConfirmed = false           
+            EmailConfirmed = false,
+            PhoneNumber = null
         };
 
         var result = await userManager.CreateAsync(user, model.Password);
@@ -59,6 +68,49 @@ public class UserAccountService : IUserAccountService
             throw new ProcessException($"Creating user account is wrong. {string.Join(", ", result.Errors.Select(s => s.Description))}");
 
         return mapper.Map<UserAccountModel>(user);
+    }
+
+    public async Task RequestEmailConfirmation(string email)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user is null)
+        {
+            throw new ProcessException("User not found");
+        }
+
+        var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+
+        var emailModel = new EmailModel
+        {
+            Email = email,
+            Subject = "Confirm your account",
+            Message = $"Please confirm your email by entering this token: " + token
+        };
+
+        await action.SendEmail(emailModel);
+    }
+
+    public async Task ConfirmEmail(string token, string email)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+
+        if (user is null)
+        {
+            throw new ProcessException("User not found");
+        }
+
+        if (user.EmailConfirmed) return;
+
+        var result = await userManager.ConfirmEmailAsync(user, token);
+
+        if (result.Succeeded == false)
+        {
+            throw new ProcessException("Incorrect confirmation");
+        }
+        else
+        {
+            user.EmailConfirmed = true;
+        }
     }
 
     public async Task<IEnumerable<UserAccountModel>> GetAll()

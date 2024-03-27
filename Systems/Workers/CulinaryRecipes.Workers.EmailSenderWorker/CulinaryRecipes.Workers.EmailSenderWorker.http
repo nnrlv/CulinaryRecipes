@@ -1,0 +1,6 @@
+@CulinaryRecipes.Workers.EmailSenderWorker_HostAddress = http://localhost:5214
+
+GET {{CulinaryRecipes.Workers.EmailSenderWorker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

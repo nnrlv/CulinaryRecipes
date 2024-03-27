@@ -33,6 +33,18 @@ public class AccountsController : Controller
         return response;
     }
 
+    [HttpPost("request-email-confirmation")]
+    public async Task RequestEmailConfirmation([FromQuery] string email)
+    {
+        await userAccountService.RequestEmailConfirmation(email);
+    }
+
+    [HttpPut("confirm-email")]
+    public async Task ConfirmEmail([FromQuery] string token, [FromQuery] string email)
+    {
+        await userAccountService.ConfirmEmail(token, email);
+    }
+
     [HttpGet("")]
     [Authorize(Policy = AppScopes.UserAccountsRead)]
     public async Task<IEnumerable<UserAccountResponse>> GetAll()

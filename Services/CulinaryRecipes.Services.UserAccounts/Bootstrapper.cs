@@ -1,5 +1,4 @@
 ﻿namespace CulinaryRecipes.Services.UserAccounts;
-
 using Microsoft.Extensions.DependencyInjection;
 
 public static class Bootstrapper

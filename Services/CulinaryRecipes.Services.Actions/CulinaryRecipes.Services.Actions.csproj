@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="6.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CulinaryRecipes.Services.EmailSender\CulinaryRecipes.Services.EmailSender.csproj" />
+    <ProjectReference Include="..\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -3,6 +3,9 @@ using CulinaryRecipes.Services.Settings;
 using CulinaryRecipes.Context.Seeder;
 using CulinaryRecipes.Services.Ingredients;
 using CulinaryRecipes.Services.UserAccounts;
+using CulinaryRecipes.Services.RabbitMq;
+using CulinaryRecipes.Services.Actions;
+using CulinaryRecipes.Services.EmailSender;
 
 public static class Bootstrapper
 {
@@ -16,7 +19,10 @@ public static class Bootstrapper
             .AddAppLogger()
             .AddDbSeeder()
             .AddIngredientService()
-            .AddUserAccountService();
+            .AddUserAccountService()
+            .AddRabbitMq()
+            .AddActions()
+            .AddEmailSender();
         return service;
     }
 }

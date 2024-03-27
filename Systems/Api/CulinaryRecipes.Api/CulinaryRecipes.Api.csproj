@@ -32,7 +32,9 @@
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.UserAccounts\CulinaryRecipes.Services.UserAccounts.csproj" />
     <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
