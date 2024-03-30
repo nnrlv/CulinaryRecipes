@@ -33,3 +33,5 @@ services:
     depends_on:
       - culinaryrecipes_rabbitmq
       - culinaryrecipes_api
+  culinaryrecipes_redis:
+    image: redis

@@ -4,6 +4,7 @@ using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
 using Microsoft.EntityFrameworkCore;
 using CulinaryRecipes.Context.Entities;
+using CulinaryRecipes.Services.Cache;
 
 namespace CulinaryRecipes.Services.Ingredients;
 
@@ -13,19 +14,33 @@ public class IngredientService : IIngredientService
     private readonly IMapper mapper;
     private readonly IModelValidator<CreateIngredientModel> createModelValidator;
     private readonly IModelValidator<UpdateIngredientModel> updateModelValidator;
+    private readonly ICacheService cacheService;
 
-    public IngredientService(IDbContextFactory<MainDbContext> dbContextFactory, IMapper mapper,
-        IModelValidator<CreateIngredientModel> createModelValidator, IModelValidator<UpdateIngredientModel> updateModelValidator)
+    public IngredientService(
+        IDbContextFactory<MainDbContext> dbContextFactory,
+        IMapper mapper,
+        IModelValidator<CreateIngredientModel> createModelValidator,
+        IModelValidator<UpdateIngredientModel> updateModelValidator,
+        ICacheService cacheService)
     {
         this.dbContextFactory = dbContextFactory;
         this.mapper = mapper;
         this.createModelValidator = createModelValidator;
         this.updateModelValidator = updateModelValidator;
+        this.cacheService = cacheService;
     }
 
     public async Task<IEnumerable<IngredientModel>> GetAll()
     {
-        using var context = await dbContextFactory.CreateDbContextAsync();
+        var cacheKey = "AllIngredients";
+
+        var cachedIngredients = await cacheService.Get<IEnumerable<IngredientModel>>(cacheKey);
+        if (cachedIngredients != null)
+        {
+            return cachedIngredients;
+        }
+
+        await using var context = await dbContextFactory.CreateDbContextAsync();
 
         var ingredients = await context.Ingredients
             .Include(x => x.IngredientsInRecipe)
@@ -33,18 +48,31 @@ public class IngredientService : IIngredientService
 
         var result = mapper.Map<IEnumerable<IngredientModel>>(ingredients);
 
+        await cacheService.Put(cacheKey, result, TimeSpan.FromMinutes(5));
+
         return result;
     }
 
     public async Task<IngredientModel> GetById(Guid id)
     {
-        using var context = await dbContextFactory.CreateDbContextAsync();
+        var cacheKey = $"Ingredient_{id}";
+
+        var cachedIngredient = await cacheService.Get<IngredientModel>(cacheKey);
+        if (cachedIngredient != null)
+        {
+            return cachedIngredient;
+        }
+
+        await using var context = await dbContextFactory.CreateDbContextAsync();
 
         var ingredient = await context.Ingredients
             .Include(x => x.IngredientsInRecipe)
             .FirstOrDefaultAsync(x => x.Uid == id);
 
         var result = mapper.Map<IngredientModel>(ingredient);
+
+        await cacheService.Put(cacheKey, result, TimeSpan.FromMinutes(5));
+
         return result;
     }
 

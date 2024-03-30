@@ -1,4 +1,4 @@
-﻿namespace CulinaryRecipes.Common;
+﻿namespace CulinaryRecipes.Common.Extensions;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;

@@ -1,4 +1,4 @@
-﻿namespace CulinaryRecipes.Common;
+﻿namespace CulinaryRecipes.Common.Extensions;
 
 using System;
 using System.Reflection;

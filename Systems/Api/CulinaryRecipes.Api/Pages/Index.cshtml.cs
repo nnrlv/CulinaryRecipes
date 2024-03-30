@@ -1,6 +1,5 @@
-using CulinaryRecipes.Common;
+using CulinaryRecipes.Common.Extensions;
 using CulinaryRecipes.Services.Settings;
-using CulinaryRecipes.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Reflection;

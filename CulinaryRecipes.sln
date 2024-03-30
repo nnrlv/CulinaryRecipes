@@ -65,7 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Ac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailSenderWorker", "EmailSenderWorker", "{9F364D6B-0D72-4555-9DFA-9B5180483C9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Workers.EmailSenderWorker", "Systems\Workers\CulinaryRecipes.Workers.EmailSenderWorker\CulinaryRecipes.Workers.EmailSenderWorker.csproj", "{24C3CBBB-3CDE-4E92-825C-3364D3489EF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Workers.EmailSenderWorker", "Systems\Workers\CulinaryRecipes.Workers.EmailSenderWorker\CulinaryRecipes.Workers.EmailSenderWorker.csproj", "{24C3CBBB-3CDE-4E92-825C-3364D3489EF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Cache", "Services\CulinaryRecipes.Services.Cache\CulinaryRecipes.Services.Cache.csproj", "{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,10 @@ Global
 		{24C3CBBB-3CDE-4E92-825C-3364D3489EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24C3CBBB-3CDE-4E92-825C-3364D3489EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24C3CBBB-3CDE-4E92-825C-3364D3489EF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +170,7 @@ Global
 		{8F4BB755-F511-4496-92FE-241E5267F859} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{9F364D6B-0D72-4555-9DFA-9B5180483C9B} = {D220FED2-2BD0-4A65-B076-8D962E588564}
 		{24C3CBBB-3CDE-4E92-825C-3364D3489EF8} = {9F364D6B-0D72-4555-9DFA-9B5180483C9B}
+		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}
