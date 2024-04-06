@@ -24,7 +24,9 @@ public static class AppClients
                 AllowedScopes = {
                     AppScopes.IngredientsRead,
                     AppScopes.IngredientsWrite,
-                    AppScopes.UserAccountsRead
+                    AppScopes.UserAccountsRead,
+                    AppScopes.CategoriesRead,
+                    AppScopes.CategoriesWrite
                 }
             }
             ,
@@ -50,7 +52,7 @@ public static class AppClients
 
                 AllowedScopes = {
                     AppScopes.IngredientsRead,
-                    AppScopes.IngredientsWrite
+                    AppScopes.CategoriesRead
                 }
             }
         };

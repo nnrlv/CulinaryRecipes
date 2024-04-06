@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [ApiVersion("1.0")]
-[ApiExplorerSettings(GroupName = "Product")]
 [Route("v{version:apiVersion}/[controller]")]
 public class IngredientController : Controller
 {
@@ -24,7 +23,15 @@ public class IngredientController : Controller
         this.ingredientService = ingredientService;
     }
 
-    [HttpGet("")]
+    [HttpGet("cached")]
+    [Authorize(Policy = AppScopes.IngredientsRead)]
+    public async Task<IEnumerable<IngredientResponse>> GetAllWithCaching()
+    {
+        var result = await ingredientService.GetAllWithCaching();
+        return mapper.Map<IEnumerable<IngredientResponse>>(result);
+    }
+
+    [HttpGet("uncached")]
     [Authorize(Policy = AppScopes.IngredientsRead)]
     public async Task<IEnumerable<IngredientResponse>> GetAll()
     {
@@ -32,7 +39,21 @@ public class IngredientController : Controller
         return mapper.Map<IEnumerable<IngredientResponse>>(result);
     }
 
-    [HttpGet("{id:Guid}")]
+    [HttpGet("cached/{id:Guid}")]
+    [Authorize(Policy = AppScopes.IngredientsRead)]
+    public async Task<IActionResult> GetWithCaching([FromRoute] Guid id)
+    {
+        var result = await ingredientService.GetByIdWithCaching(id);
+
+        if (result == null)
+            return NotFound();
+
+        var response = mapper.Map<IngredientResponse>(result);
+
+        return Ok(response);
+    }
+
+    [HttpGet("uncached/{id:Guid}")]
     [Authorize(Policy = AppScopes.IngredientsRead)]
     public async Task<IActionResult> Get([FromRoute] Guid id)
     {

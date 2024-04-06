@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [ApiVersion("1.0")]
-[ApiExplorerSettings(GroupName = "Product")]
 [Route("v{version:apiVersion}/[controller]")]
 public class AccountsController : Controller
 {

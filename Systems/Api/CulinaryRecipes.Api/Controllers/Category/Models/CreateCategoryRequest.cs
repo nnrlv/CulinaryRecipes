@@ -1,0 +1,18 @@
+﻿using AutoMapper;
+using CulinaryRecipes.Services.Categories;
+
+namespace CulinaryRecipes.Api.Controllers.Category;
+
+public class CreateCategoryRequest
+{
+    public string Name { get; set; }
+    public int? CategoryId { get; set; }
+}
+
+public class CreateCategoryRequestProfile : Profile
+{
+    public CreateCategoryRequestProfile()
+    {
+        CreateMap<CreateCategoryRequest, CreateCategoryModel>();
+    }
+}

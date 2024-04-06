@@ -32,6 +32,19 @@ public class IngredientService : IIngredientService
 
     public async Task<IEnumerable<IngredientModel>> GetAll()
     {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var ingredients = await context.Ingredients
+            .Include(x => x.IngredientsInRecipe)
+            .ToListAsync();
+
+        var result = mapper.Map<IEnumerable<IngredientModel>>(ingredients);
+
+        return result;
+    }
+
+    public async Task<IEnumerable<IngredientModel>> GetAllWithCaching()
+    {
         var cacheKey = "AllIngredients";
 
         var cachedIngredients = await cacheService.Get<IEnumerable<IngredientModel>>(cacheKey);
@@ -54,6 +67,19 @@ public class IngredientService : IIngredientService
     }
 
     public async Task<IngredientModel> GetById(Guid id)
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var ingredient = await context.Ingredients
+            .Include(x => x.IngredientsInRecipe)
+            .FirstOrDefaultAsync(x => x.Uid == id);
+
+        var result = mapper.Map<IngredientModel>(ingredient);
+
+        return result;
+    }
+
+    public async Task<IngredientModel> GetByIdWithCaching(Guid id)
     {
         var cacheKey = $"Ingredient_{id}";
 

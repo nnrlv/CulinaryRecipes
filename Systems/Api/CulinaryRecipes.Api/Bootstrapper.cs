@@ -7,6 +7,7 @@ using CulinaryRecipes.Services.RabbitMq;
 using CulinaryRecipes.Services.Actions;
 using CulinaryRecipes.Services.EmailSender;
 using CulinaryRecipes.Services.Cache;
+using CulinaryRecipes.Services.Categories;
 
 public static class Bootstrapper
 {
@@ -20,6 +21,7 @@ public static class Bootstrapper
             .AddAppLogger()
             .AddDbSeeder()
             .AddIngredientService()
+            .AddCategoryService()
             .AddUserAccountService()
             .AddRabbitMq()
             .AddActions()
