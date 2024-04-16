@@ -51,8 +51,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{B2E0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{AD4449BD-6636-4FE0-A0A3-D77ED66E1D8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.PgSQL", "Data\CulinaryNotes.Conext.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Identity", "Systems\Identity\CulinaryRecipes.Identity\CulinaryRecipes.Identity.csproj", "{CF5B8E88-71B2-4BF3-A94F-9AECE4BF14C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.UserAccounts", "Services\CulinaryRecipes.Services.UserAccounts\CulinaryRecipes.Services.UserAccounts.csproj", "{63E9D000-273F-43E2-B916-F21A7DFC8AB9}"
@@ -69,7 +67,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Workers.Ema
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Cache", "Services\CulinaryRecipes.Services.Cache\CulinaryRecipes.Services.Cache.csproj", "{35FA8D19-59A7-47AD-92B7-86F221BDF3CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Services.Categories", "Services\CulinaryRecipes.Services.Categories\CulinaryRecipes.Services.Categories.csproj", "{6A842B7E-8939-420E-A1D9-639F3F49B582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Categories", "Services\CulinaryRecipes.Services.Categories\CulinaryRecipes.Services.Categories.csproj", "{6A842B7E-8939-420E-A1D9-639F3F49B582}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Recipes", "Services\CulinaryRecipes.Services.Recipes\CulinaryRecipes.Services.Recipes.csproj", "{8735362B-2B9E-423D-A784-13D2F3B0E847}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.PgSQL", "Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{45A65414-D1E8-4AFC-9604-88D027DFCBB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,10 +115,6 @@ Global
 		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF5B8E88-71B2-4BF3-A94F-9AECE4BF14C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF5B8E88-71B2-4BF3-A94F-9AECE4BF14C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF5B8E88-71B2-4BF3-A94F-9AECE4BF14C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -149,6 +147,14 @@ Global
 		{6A842B7E-8939-420E-A1D9-639F3F49B582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A842B7E-8939-420E-A1D9-639F3F49B582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A842B7E-8939-420E-A1D9-639F3F49B582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8735362B-2B9E-423D-A784-13D2F3B0E847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8735362B-2B9E-423D-A784-13D2F3B0E847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8735362B-2B9E-423D-A784-13D2F3B0E847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8735362B-2B9E-423D-A784-13D2F3B0E847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A65414-D1E8-4AFC-9604-88D027DFCBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A65414-D1E8-4AFC-9604-88D027DFCBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A65414-D1E8-4AFC-9604-88D027DFCBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A65414-D1E8-4AFC-9604-88D027DFCBB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,7 +174,6 @@ Global
 		{916F722A-77AE-410D-BC2D-19A8E2314DFF} = {B7664AD8-55BE-48EC-B816-A76FD9584B78}
 		{69075999-06B3-4D6D-8AF4-6F8D6390BE4E} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{AD4449BD-6636-4FE0-A0A3-D77ED66E1D8D} = {5174997B-06E5-487D-B977-1AA302BACB0D}
-		{3ED0311C-EBC0-45B4-9979-EBCE3F63C0CE} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
 		{CF5B8E88-71B2-4BF3-A94F-9AECE4BF14C8} = {AD4449BD-6636-4FE0-A0A3-D77ED66E1D8D}
 		{63E9D000-273F-43E2-B916-F21A7DFC8AB9} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{05EA4C41-0B45-4439-8FB2-F3D33EE99F33} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
@@ -178,6 +183,8 @@ Global
 		{24C3CBBB-3CDE-4E92-825C-3364D3489EF8} = {9F364D6B-0D72-4555-9DFA-9B5180483C9B}
 		{35FA8D19-59A7-47AD-92B7-86F221BDF3CC} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{6A842B7E-8939-420E-A1D9-639F3F49B582} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
+		{8735362B-2B9E-423D-A784-13D2F3B0E847} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
+		{45A65414-D1E8-4AFC-9604-88D027DFCBB1} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}

@@ -1,10 +1,10 @@
-﻿namespace CulinaryRecipes.Context.Entities;
+﻿using AutoMapper;
+using CulinaryRecipes.Services.Recipes;
 
-public class Recipe : BaseEntity
+namespace CulinaryRecipes.Api.Controllers.Recipe;
+
+public class CreateRecipeRequest
 {
-    public int UserId { get; set; }
-    public User User { get; set; }
-
     public string Name { get; set; }
 
     public float PreparationTime { get; set; }
@@ -17,7 +17,12 @@ public class Recipe : BaseEntity
     public float Proteins { get; set; }
     public float Carbohydrates { get; set; }
     public float Fats { get; set; }
+}
 
-    public virtual ICollection<IngredientInRecipe>? IngredientsInRecipe { get; set; }
-    public virtual ICollection<RecipeInCategory>? RecipesInCategories { get; set; }
+public class CreateRecipeRequestProfile : Profile
+{
+    public CreateRecipeRequestProfile()
+    {
+        CreateMap<CreateRecipeRequest, CreateRecipeModel>();
+    }
 }

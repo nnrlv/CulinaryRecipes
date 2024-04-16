@@ -10,5 +10,5 @@ public class Ingredient : BaseEntity
     public float Carbohydrates { get; set; }
     public float Fats { get; set; }
 
-    public virtual ICollection<IngredientInRecipe> IngredientsInRecipe { get; set; }
+    public virtual ICollection<IngredientInRecipe>? IngredientsInRecipe { get; set; }
 }

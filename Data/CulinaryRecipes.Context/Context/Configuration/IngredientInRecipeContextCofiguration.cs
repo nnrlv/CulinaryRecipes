@@ -20,8 +20,6 @@ public static class IngredientInRecipeContextConfiguration
            .WithMany(x => x.IngredientsInRecipe)
            .HasForeignKey(x => x.RecipeId)
            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<IngredientInRecipe>().HasKey(x => new { x.IngredientId, x.RecipeId });
     }
 
 }

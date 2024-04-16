@@ -17,6 +17,7 @@
 	  <PrivateAssets>all</PrivateAssets>
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.3" />
 	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
 	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
@@ -28,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Data\CulinaryNotes.Conext.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
+    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj" />
@@ -37,6 +38,7 @@
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Categories\CulinaryRecipes.Services.Categories.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Recipes\CulinaryRecipes.Services.Recipes.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.UserAccounts\CulinaryRecipes.Services.UserAccounts.csproj" />
     <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />

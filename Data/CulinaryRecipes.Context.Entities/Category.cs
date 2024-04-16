@@ -7,6 +7,6 @@ public class Category : BaseEntity
     public int? CategoryId { get; set; }
     public Category? ParentCategory { get; set; }
 
-    public virtual ICollection<Category> Categories { get; set; }
-    public virtual ICollection<Recipe> Recipes { get; set; }
+    public virtual ICollection<Category>? Categories { get; set; }
+    public virtual ICollection<RecipeInCategory>? RecipesInCategories { get; set; }
 }

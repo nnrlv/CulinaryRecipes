@@ -3,6 +3,7 @@ using System;
 using CulinaryRecipes.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,13 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240416113850_added intermediate entity for recipe and category")]
+    partial class addedintermediateentityforrecipeandcategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -37,17 +40,12 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("integer");
-
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("RecipeId");
 
                     b.HasIndex("Uid")
                         .IsUnique();
@@ -97,22 +95,24 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.IngredientInRecipe", b =>
                 {
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("IngredientId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("integer");
+
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
-                    b.HasKey("IngredientId", "RecipeId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("IngredientId");
 
                     b.HasIndex("RecipeId");
 
@@ -136,9 +136,6 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                     b.Property<float>("Carbohydrates")
                         .HasColumnType("real");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
-
                     b.Property<float>("CookingTime")
                         .HasColumnType("real");
 
@@ -149,9 +146,6 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 
                     b.Property<float>("Fats")
                         .HasColumnType("real");
-
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Instructions")
                         .IsRequired()
@@ -177,16 +171,41 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("IngredientId");
-
                     b.HasIndex("Uid")
                         .IsUnique();
 
                     b.HasIndex("UserId");
 
                     b.ToTable("recipes", (string)null);
+                });
+
+            modelBuilder.Entity("CulinaryRecipes.Context.Entities.RecipeInCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("Uid")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("RecipeId");
+
+                    b.HasIndex("Uid")
+                        .IsUnique();
+
+                    b.ToTable("recipes_in_categories", (string)null);
                 });
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.User", b =>
@@ -408,10 +427,6 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CulinaryRecipes.Context.Entities.Recipe", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("RecipeId");
-
                     b.Navigation("ParentCategory");
                 });
 
@@ -436,18 +451,6 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.Recipe", b =>
                 {
-                    b.HasOne("CulinaryRecipes.Context.Entities.Category", "Category")
-                        .WithMany("Recipes")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("CulinaryRecipes.Context.Entities.Ingredient", "Ingredient")
-                        .WithMany()
-                        .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CulinaryRecipes.Context.Entities.User", "User")
                         .WithMany("Recipes")
                         .HasForeignKey("UserId")
@@ -455,11 +458,26 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CulinaryRecipes.Context.Entities.RecipeInCategory", b =>
+                {
+                    b.HasOne("CulinaryRecipes.Context.Entities.Category", "Category")
+                        .WithMany("RecipesInCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CulinaryRecipes.Context.Entities.Recipe", "Recipe")
+                        .WithMany("RecipesInCategories")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Category");
 
-                    b.Navigation("Ingredient");
-
-                    b.Navigation("User");
+                    b.Navigation("Recipe");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -517,7 +535,7 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                 {
                     b.Navigation("Categories");
 
-                    b.Navigation("Recipes");
+                    b.Navigation("RecipesInCategories");
                 });
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.Ingredient", b =>
@@ -527,9 +545,9 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.Recipe", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("IngredientsInRecipe");
+
+                    b.Navigation("RecipesInCategories");
                 });
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.User", b =>

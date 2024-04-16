@@ -22,12 +22,6 @@ public static class RecipeContextConfiguration
             .HasForeignKey(x => x.UserId)
             .HasPrincipalKey(x => x.EntryId)
             .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<Recipe>()
-            .HasOne(x => x.Category)
-            .WithMany(x => x.Recipes)
-            .HasForeignKey(x => x.CategoryId)
-            .OnDelete(DeleteBehavior.NoAction);
     }
 
 }

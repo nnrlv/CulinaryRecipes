@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CulinaryRecipes.Services.Ingredients;
-
 namespace CulinaryRecipes.Api.Controllers.Ingredient;
 
 public class IngredientResponse
