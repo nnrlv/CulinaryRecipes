@@ -74,7 +74,8 @@ public static class SwaggerConfiguration
                             { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" },
                             { AppScopes.UserAccountsRead, "Allowed to read user accounts data" },
                             { AppScopes.CategoriesRead, "Allowed to read categories data" },
-                            { AppScopes.CategoriesWrite, "Allowed to writte categories data" }
+                            { AppScopes.CategoriesWrite, "Allowed to writte categories data" },
+                            { AppScopes.RecipesWrite, "Allowed to write recipes data" }
                         }
                     },
 
@@ -87,7 +88,8 @@ public static class SwaggerConfiguration
                             { AppScopes.IngredientsWrite, "Allowed to writte ingredients data" },
                             { AppScopes.UserAccountsRead, "Allowed to read user accounts data" },
                             { AppScopes.CategoriesRead, "Allowed to read categories data" },
-                            { AppScopes.CategoriesWrite, "Allowed to writte categories data" }
+                            { AppScopes.CategoriesWrite, "Allowed to writte categories data" },
+                            { AppScopes.RecipesWrite, "Allowed to write recipes data" }
                         }
                     }
                 }

@@ -1,8 +1,10 @@
 ﻿namespace CulinaryRecipes.Api.Controllers.Recipe;
 
 using AutoMapper;
+using CulinaryRecipes.Common.Security;
 using CulinaryRecipes.Services.Logger;
 using CulinaryRecipes.Services.Recipes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -106,6 +108,7 @@ public class RecipeController : Controller
     }
 
     [HttpPost("")]
+    [Authorize(Policy = AppScopes.RecipesWrite)]
     public async Task<ShortRecipeResponse> Create([FromQuery] Guid userId, [FromQuery] CreateRecipeRequest model)
     {
         var result = await recipeService.Create(mapper.Map<CreateRecipeModel>(model), userId.ToString());
@@ -114,24 +117,28 @@ public class RecipeController : Controller
     }
 
     [HttpPost("{recipeId:Guid}/ingredients/{ingredientId:Guid}")]
+    [Authorize(Policy = AppScopes.RecipesWrite)]
     public async Task AddIngredientInRecipe([FromRoute] Guid recipeId, [FromRoute] Guid ingredientId)
     {
         await recipeService.AddIngredientInRecipe(recipeId, ingredientId);
     }
 
     [HttpPost("{recipeId:Guid}/categories/{categoryId:Guid}")]
+    [Authorize(Policy = AppScopes.RecipesWrite)]
     public async Task AddCategoryToRecipe([FromRoute] Guid recipeId, [FromRoute] Guid categoryId)
     {
         await recipeService.AddCategoryToRecipe(recipeId, categoryId);
     }
 
     [HttpPut("")]
+    [Authorize(Policy = AppScopes.RecipesWrite)]
     public async Task Update([FromQuery] Guid id, [FromQuery] UpdateRecipeRequest model)
     {
         await recipeService.Update(id, mapper.Map<UpdateRecipeModel>(model));
     }
 
     [HttpDelete("")]
+    [Authorize(Policy = AppScopes.RecipesWrite)]
     public async Task Delete([FromQuery] Guid id)
     {
         await recipeService.Delete(id);
