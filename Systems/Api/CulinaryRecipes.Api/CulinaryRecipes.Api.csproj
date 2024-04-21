@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
     <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
