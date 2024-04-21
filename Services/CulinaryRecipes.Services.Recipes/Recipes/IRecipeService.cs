@@ -8,6 +8,14 @@ public interface IRecipeService
 
     Task<IEnumerable<ShortRecipeModel>> GetAllShortRecipesWithCaching();
 
+    Task<IEnumerable<ShortRecipeModel>> GetFilteredShortRecipesWithCaching(
+        string? userName,
+        float? minPreparationTime,
+        float? maxPreparationTime,
+        float? minCookingTime,
+        float? maxCookingTime,
+        string? categoryName);
+
     Task<ShortRecipeModel> GetShortRecipeById(Guid id);
 
     Task<ShortRecipeModel> GetShortRecipeByIdWithCaching(Guid id);

@@ -35,6 +35,25 @@ public class RecipeController : Controller
         return mapper.Map<IEnumerable<ShortRecipeResponse>>(result);
     }
 
+    [HttpGet("filtered")]
+    public async Task<IEnumerable<ShortRecipeResponse>> GetFilteredShortRecipes(
+        [FromQuery] string? userName,
+        [FromQuery] float? minPreparationTime,
+        [FromQuery] float? maxPreparationTime,
+        [FromQuery] float? minCookingTime,
+        [FromQuery] float? maxCookingTime,
+        [FromQuery] string? categoryName)
+    {
+        var result = await recipeService.GetFilteredShortRecipesWithCaching(
+            userName,
+            minPreparationTime,
+            maxPreparationTime,
+            minCookingTime,
+            maxCookingTime,
+            categoryName);
+        return mapper.Map<IEnumerable<ShortRecipeResponse>>(result);
+    }
+
     [HttpGet("uncached/{id:Guid}")]
     public async Task<IActionResult> GetShortRecipe([FromRoute] Guid id)
     {

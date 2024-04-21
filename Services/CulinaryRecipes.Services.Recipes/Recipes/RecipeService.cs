@@ -4,6 +4,9 @@ using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
 using Microsoft.EntityFrameworkCore;
 using CulinaryRecipes.Common.Validator;
+using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 
 namespace CulinaryRecipes.Services.Recipes;
 
@@ -60,6 +63,75 @@ public class RecipeService : IRecipeService
 
         return result;
     }
+
+    public async Task<IEnumerable<ShortRecipeModel>> GetFilteredShortRecipesWithCaching(
+        string? userName,
+        float? minPreparationTime,
+        float? maxPreparationTime,
+        float? minCookingTime,
+        float? maxCookingTime,
+        string? categoryName)
+    {
+
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var cacheKey = "Filter";
+        if (!string.IsNullOrEmpty(userName)) cacheKey += $"_userName_{userName}";
+        if (minPreparationTime.HasValue) cacheKey += $"_minPreparationTime_{minPreparationTime}";
+        if (maxPreparationTime.HasValue) cacheKey += $"_maxPreparationTime_{maxPreparationTime}";
+        if (minCookingTime.HasValue) cacheKey += $"_minCookingTime_{minCookingTime}";
+        if (maxCookingTime.HasValue) cacheKey += $"_maxCookingTime_{maxCookingTime}";
+        if (!string.IsNullOrEmpty(categoryName)) cacheKey += $"_categoryName_{categoryName}";
+
+        var cachedResult = await cacheService.Get<IEnumerable<ShortRecipeModel>>(cacheKey);
+        if (cachedResult != null)
+        {
+            return cachedResult;
+        }
+
+        var query = context.Recipes.AsQueryable();
+
+        if (!string.IsNullOrEmpty(userName))
+        {
+            query = query.Where(r => r.User.Name == userName);
+        }
+
+        if (minPreparationTime.HasValue)
+        {
+            query = query.Where(r => r.PreparationTime >= minPreparationTime.Value);
+        }
+
+        if (maxPreparationTime.HasValue)
+        {
+            query = query.Where(r => r.PreparationTime <= maxPreparationTime.Value);
+        }
+
+        if (minCookingTime.HasValue)
+        {
+            query = query.Where(r => r.CookingTime >= minCookingTime.Value);
+        }
+
+        if (maxCookingTime.HasValue)
+        {
+            query = query.Where(r => r.CookingTime <= maxCookingTime.Value);
+        }
+
+        if (!string.IsNullOrEmpty(categoryName))
+        {
+            query = query.Where(r => r.RecipesInCategories!.Any(ric => ric.Category.Name == categoryName));
+        }
+
+        var recipes = await query.ToListAsync();
+
+        var result = mapper.Map<IEnumerable<ShortRecipeModel>>(recipes);
+
+        await cacheService.Put(cacheKey, result, TimeSpan.FromMinutes(15));
+
+        return result;
+    }
+
+
+
 
     public async Task<ShortRecipeModel> GetShortRecipeById(Guid id)
     {
