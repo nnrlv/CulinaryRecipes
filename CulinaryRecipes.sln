@@ -73,7 +73,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.PgSQL", "Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj", "{45A65414-D1E8-4AFC-9604-88D027DFCBB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Context.Migrations.MSSQL", "Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL.csproj", "{39767FE5-9F43-4C15-A775-33AE7DABCAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Migrations.MSSQL", "Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL.csproj", "{39767FE5-9F43-4C15-A775-33AE7DABCAB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Services.Comments", "Services\CulinaryRecipes.Services.Comments\CulinaryRecipes.Services.Comments.csproj", "{D4CC529D-5675-4EEE-9EDC-C265D2396830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +163,10 @@ Global
 		{39767FE5-9F43-4C15-A775-33AE7DABCAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39767FE5-9F43-4C15-A775-33AE7DABCAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39767FE5-9F43-4C15-A775-33AE7DABCAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4CC529D-5675-4EEE-9EDC-C265D2396830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4CC529D-5675-4EEE-9EDC-C265D2396830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4CC529D-5675-4EEE-9EDC-C265D2396830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4CC529D-5675-4EEE-9EDC-C265D2396830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +198,7 @@ Global
 		{8735362B-2B9E-423D-A784-13D2F3B0E847} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{45A65414-D1E8-4AFC-9604-88D027DFCBB1} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
 		{39767FE5-9F43-4C15-A775-33AE7DABCAB7} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
+		{D4CC529D-5675-4EEE-9EDC-C265D2396830} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}

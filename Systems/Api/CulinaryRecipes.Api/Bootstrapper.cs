@@ -9,6 +9,8 @@ using CulinaryRecipes.Services.EmailSender;
 using CulinaryRecipes.Services.Cache;
 using CulinaryRecipes.Services.Categories;
 using CulinaryRecipes.Services.Recipes;
+using CulinaryRecipes.Services.Comments;
+
 
 public static class Bootstrapper
 {
@@ -20,14 +22,18 @@ public static class Bootstrapper
             .AddLogSettings()
             .AddIdentitySettings()
             .AddAppLogger()
-            .AddDbSeeder()
+
+            //.AddDbSeeder()
             .AddIngredientService()
             .AddCategoryService()
             .AddUserAccountService()
             .AddRecipeService()
+            .AddCommentService()
+
             .AddRabbitMq()
             .AddActions()
             .AddEmailSender()
+
             .AddCache();
         return service;
     }

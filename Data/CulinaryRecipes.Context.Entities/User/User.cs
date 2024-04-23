@@ -11,5 +11,6 @@ public class User : IdentityUser<Guid>
     public string Name { get; set; }
     public UserStatus Status { get; set; }
 
-    public virtual ICollection<Recipe> Recipes { get; set; }
+    public virtual ICollection<Recipe>? Recipes { get; set; }
+    public virtual ICollection<Comment>? Comments { get; set; }
 }

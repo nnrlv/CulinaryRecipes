@@ -13,6 +13,7 @@ public class MainDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     public DbSet<Category> Categories { get; set; }
     public DbSet<RecipeInCategory> RecipesInCategories { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<Comment> Comments { get; set; }
 
     public MainDbContext(DbContextOptions<MainDbContext> options) : base(options) { }
 
@@ -26,5 +27,6 @@ public class MainDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
         modelBuilder.ConfigureCategories();
         modelBuilder.ConfigureRecipesInCategories();
         modelBuilder.ConfigureUsers();
+        modelBuilder.ConfigureComments();
     }
 }

@@ -8,4 +8,6 @@ public static class AppScopes
     public const string CategoriesRead = "categories_read";
     public const string CategoriesWrite = "categories_write";
     public const string RecipesWrite = "recipes_write";
+    public const string CommentsRead = "comments_read";
+    public const string CommentsWrite = "comments_write";
 }

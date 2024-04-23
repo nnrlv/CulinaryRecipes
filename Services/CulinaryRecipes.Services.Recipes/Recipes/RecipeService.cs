@@ -256,7 +256,7 @@ public class RecipeService : IRecipeService
 
     public async Task<ShortRecipeModel> Create(CreateRecipeModel model, string userId)
     {
-        createModelValidator.Check(model);
+        createModelValidator.CheckAsync(model);
 
         await using var context = await dbContextFactory.CreateDbContextAsync();
 
