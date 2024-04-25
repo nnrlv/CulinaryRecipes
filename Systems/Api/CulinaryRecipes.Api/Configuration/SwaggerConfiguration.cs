@@ -77,7 +77,8 @@ public static class SwaggerConfiguration
                             { AppScopes.CategoriesWrite, "Allowed to writte categories data" },
                             { AppScopes.RecipesWrite, "Allowed to write recipes data" },
                             { AppScopes.CommentsRead, "Allowed to read comments" },
-                            { AppScopes.CommentsWrite, "Allowed to writte comments" }
+                            { AppScopes.CommentsWrite, "Allowed to writte comments" },
+                            { AppScopes.Subscribe, "Allowed to subscribe/unsubscribe to users and recipes" }
                         }
                     },
 
@@ -93,7 +94,8 @@ public static class SwaggerConfiguration
                             { AppScopes.CategoriesWrite, "Allowed to writte categories data" },
                             { AppScopes.RecipesWrite, "Allowed to write recipes data" },
                             { AppScopes.CommentsRead, "Allowed to read comments" },
-                            { AppScopes.CommentsWrite, "Allowed to writte comments" }
+                            { AppScopes.CommentsWrite, "Allowed to writte comments" },
+                            { AppScopes.Subscribe, "Allowed to subscribe/unsubscribe to users and recipes" }
                         }
                     }
                 }

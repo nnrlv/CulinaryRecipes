@@ -10,6 +10,7 @@ using CulinaryRecipes.Services.Cache;
 using CulinaryRecipes.Services.Categories;
 using CulinaryRecipes.Services.Recipes;
 using CulinaryRecipes.Services.Comments;
+using CulinaryRecipes.Services.Subscriptions;
 
 
 public static class Bootstrapper
@@ -29,6 +30,7 @@ public static class Bootstrapper
             .AddUserAccountService()
             .AddRecipeService()
             .AddCommentService()
+            .AddSubscriptionService()
 
             .AddRabbitMq()
             .AddActions()

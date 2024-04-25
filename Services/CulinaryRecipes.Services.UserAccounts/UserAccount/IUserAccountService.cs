@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace CulinaryRecipes.Services.UserAccounts;
+﻿namespace CulinaryRecipes.Services.UserAccounts;
 
 public interface IUserAccountService
 {

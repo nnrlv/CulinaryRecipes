@@ -13,4 +13,7 @@ public class User : IdentityUser<Guid>
 
     public virtual ICollection<Recipe>? Recipes { get; set; }
     public virtual ICollection<Comment>? Comments { get; set; }
+    public virtual ICollection<UserSubscription>? UserSubscriptions { get; set; }
+    public virtual ICollection<RecipeSubscription>? RecipeSubscriptions { get; set; }
+
 }

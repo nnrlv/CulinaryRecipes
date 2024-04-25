@@ -15,6 +15,8 @@ public static class AppApiScopes
             new ApiScope(AppScopes.CategoriesWrite, "Allowed to write categories data"),
             new ApiScope(AppScopes.RecipesWrite, "Allowed to write recipes data"),
             new ApiScope(AppScopes.CommentsRead, "Allowed to read comments"),
-            new ApiScope(AppScopes.CommentsWrite, "Allowed to write comments")
+            new ApiScope(AppScopes.CommentsWrite, "Allowed to write comments"),
+            new ApiScope(AppScopes.Subscribe, "Allowed to subscribe/unsubscribe to users and recipes")
+
         };
 }

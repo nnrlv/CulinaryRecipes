@@ -21,4 +21,5 @@ public class Recipe : BaseEntity
     public virtual ICollection<IngredientInRecipe>? IngredientsInRecipe { get; set; }
     public virtual ICollection<RecipeInCategory>? RecipesInCategories { get; set; }
     public virtual ICollection<Comment>? Comments { get; set; }
+    public virtual ICollection<RecipeSubscription>? RecipeSubscriptions { get; set; }
 }

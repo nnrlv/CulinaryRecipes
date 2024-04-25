@@ -29,7 +29,8 @@ public static class AppClients
                     AppScopes.CategoriesWrite,
                     AppScopes.RecipesWrite,
                     AppScopes.CommentsRead,
-                    AppScopes.CommentsWrite
+                    AppScopes.CommentsWrite,
+                    AppScopes.Subscribe
                 }
             }
             ,
@@ -59,7 +60,8 @@ public static class AppClients
                     AppScopes.UserAccountsRead,
                     AppScopes.RecipesWrite,
                     AppScopes.CommentsRead,
-                    AppScopes.CommentsWrite
+                    AppScopes.CommentsWrite,
+                    AppScopes.Subscribe
                 }
             }
         };

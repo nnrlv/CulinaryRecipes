@@ -3,6 +3,7 @@ using System;
 using CulinaryRecipes.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    partial class MainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240425104014_added subscriptions")]
+    partial class addedsubscriptions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -264,7 +267,7 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                     b.HasIndex("Uid")
                         .IsUnique();
 
-                    b.ToTable("recipe_subscriptions", (string)null);
+                    b.ToTable("recipe_subscription", (string)null);
                 });
 
             modelBuilder.Entity("CulinaryRecipes.Context.Entities.User", b =>
@@ -363,12 +366,17 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                     b.Property<int>("SubscriberId")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("SubscriberId1")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("SubscriberId1");
 
                     b.HasIndex("Uid")
                         .IsUnique();
@@ -615,7 +623,15 @@ namespace CulinaryRecipes.Context.Migrations.PgSQL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("CulinaryRecipes.Context.Entities.User", "Subscriber")
+                        .WithMany()
+                        .HasForeignKey("SubscriberId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Author");
+
+                    b.Navigation("Subscriber");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

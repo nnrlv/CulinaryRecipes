@@ -10,4 +10,5 @@ public static class AppScopes
     public const string RecipesWrite = "recipes_write";
     public const string CommentsRead = "comments_read";
     public const string CommentsWrite = "comments_write";
+    public const string Subscribe = "subscribe";
 }
