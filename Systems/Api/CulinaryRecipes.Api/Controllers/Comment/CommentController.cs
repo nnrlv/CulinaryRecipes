@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CulinaryRecipes.Common.Security;
 using CulinaryRecipes.Services.Comments;
 using CulinaryRecipes.Services.Logger;
 using Microsoft.AspNetCore.Authorization;
@@ -24,6 +25,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("recipe/{recipeId:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IEnumerable<CommentResponse>> GetAllByRecipeId([FromRoute] Guid recipeId)
     {
         var comments = await commentService.GetAllByRecipeId(recipeId);
@@ -34,6 +36,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("cached/recipe/{recipeId:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IEnumerable<CommentResponse>> GetAllByRecipeIdWithCaching([FromRoute] Guid recipeId)
     {
         var comments = await commentService.GetAllByRecipeIdWithCaching(recipeId);
@@ -44,6 +47,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("user/{userId:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IEnumerable<CommentResponse>> GetAllByUserId([FromRoute] Guid userId)
     {
         var comments = await commentService.GetAllByUserId(userId);
@@ -54,6 +58,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("cached/user/{userId:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IEnumerable<CommentResponse>> GetAllByUserIdWithCaching([FromRoute] Guid userId)
     {
         var comments = await commentService.GetAllByUserIdWithCaching(userId);
@@ -64,6 +69,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("{id:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IActionResult> GetById([FromRoute] Guid id)
     {
         var result = await commentService.GetById(id);
@@ -75,6 +81,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet("cached/{id:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsRead)]
     public async Task<IActionResult> GetByIdWithCaching([FromRoute] Guid id)
     {
         var result = await commentService.GetByIdWithCaching(id);
@@ -86,6 +93,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpPost("")]
+    [Authorize(Policy = AppScopes.CommentsWrite)]
     public async Task<CommentResponse> Create([FromQuery] CreateCommentRequest request)
     {
         var comment = await commentService.Create(mapper.Map<CreateCommentModel>(request));
@@ -96,6 +104,7 @@ public class CommentController : ControllerBase
     }
 
     [HttpDelete("{id:Guid}")]
+    [Authorize(Policy = AppScopes.CommentsWrite)]
     public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         await commentService.Delete(id);

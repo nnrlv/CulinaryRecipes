@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
+    <ProjectReference Include="..\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
+    <ProjectReference Include="..\CulinaryRecipes.Services.EmailSender\CulinaryRecipes.Services.EmailSender.csproj" />
   </ItemGroup>
 
 </Project>

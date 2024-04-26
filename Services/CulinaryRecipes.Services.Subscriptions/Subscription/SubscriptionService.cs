@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using CulinaryRecipes.Common.Exceptions;
-using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
 using CulinaryRecipes.Context.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
+using CulinaryRecipes.Services.Actions;
+using CulinaryRecipes.Services.EmailSender;
 
 namespace CulinaryRecipes.Services.Subscriptions;
 
@@ -12,13 +11,16 @@ public class SubscriptionService : ISubscriptionService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
     private readonly IMapper mapper;
+    private readonly IAction action;
 
     public SubscriptionService(
         IDbContextFactory<MainDbContext> dbContextFactory,
-        IMapper mapper)
+        IMapper mapper,
+        IAction action)
     {
         this.dbContextFactory = dbContextFactory;
         this.mapper = mapper;
+        this.action = action;
     }
 
     public async Task SubscribeToUser(Guid subscriberId, Guid authorId)
@@ -135,6 +137,72 @@ public class SubscriptionService : ISubscriptionService
 
         context.RecipeSubscriptions.Remove(subscription);
         await context.SaveChangesAsync();
+    }
+
+    public async Task SendEmailToUserSubscribersAboutNewRecipe(Guid authorId, string recipeName)
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var author = await context
+            .Users
+            .FirstOrDefaultAsync(x => x.Id == authorId);
+
+        if (author is null) throw new InvalidOperationException("Author not found");
+
+        var subscribers = await context
+            .UserSubscriptions
+            .Where(x => x.AuthorId == author.EntryId)
+            .Select(x => x.SubscriberId)
+            .ToListAsync();
+
+        var subscriberEmails = await context
+            .Users
+            .Where(x => subscribers.Contains(x.EntryId))
+            .Select(x => x.Email)
+            .ToListAsync();
+
+        foreach (var email in subscriberEmails)
+        {
+            await action.SendNewRecipeFromUserSubscriptionInfo(new EmailModel
+            {
+                Email = email,
+                Subject = $"Check new recipe from {author.Name}",
+                Message = $"User that you subscribed {author.Name} posted a new recipe named {recipeName}."
+            });
+        }
+    }
+
+    public async Task SendEmailToRecipeSubscribersAboutNewComment(Guid recipeId)
+    {
+        await using var context = await dbContextFactory.CreateDbContextAsync();
+
+        var recipe = await context
+            .Recipes
+            .FirstOrDefaultAsync(x => x.Uid == recipeId);
+
+        if (recipe is null) throw new InvalidOperationException("Recipe not found");
+
+        var subscribers = await context
+            .RecipeSubscriptions
+            .Where(x => x.RecipeId == recipe.Id)
+            .Select(x => x.SubscriberId)
+            .ToListAsync();
+
+        var subscriberEmails = await context
+            .Users
+            .Where(x => subscribers.Contains(x.EntryId))
+            .Select(x => x.Email)
+            .ToListAsync();
+
+        foreach (var email in subscriberEmails)
+        {
+            await action.SendNewCommentFromRecipeSubscriptionInfo(new EmailModel
+            {
+                Email = email,
+                Subject = $"Check new comment in recipe {recipe.Name}",
+                Message = $"New comment posted on a recipe that you subscribed: {recipe.Name}."
+            });
+        }
     }
 }
 

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.EmailSender\CulinaryRecipes.Services.EmailSender.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
+    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
+    <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
+  </ItemGroup>
+
+</Project>

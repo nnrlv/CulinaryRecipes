@@ -7,11 +7,8 @@ using CulinaryRecipes.Context;
 using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Actions;
 using CulinaryRecipes.Services.EmailSender;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Encodings.Web;
 
 public class UserAccountService : IUserAccountService
 {
@@ -20,10 +17,6 @@ public class UserAccountService : IUserAccountService
     private readonly UserManager<User> userManager;
     private readonly IModelValidator<CreateUserAccountModel> registerUserAccountModelValidator;
     private readonly IAction action;
-
-    private readonly IUrlHelper urlHelper;
-    private readonly IHttpContextAccessor httpContextAccessor;
-    private readonly HtmlEncoder htmlEncoder;
 
     public UserAccountService(
         IMapper mapper,

@@ -33,5 +33,42 @@ services:
     depends_on:
       - culinaryrecipes_rabbitmq
       - culinaryrecipes_api
+
+  culinaryrecipes_usersubscriptionemailsenderworker1:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesusersubscriptionemailsenderworker
+    build:
+      context: .
+      dockerfile: Systems/Workers/CulinaryRecipes.Workers.UserSubscriptionEmailSenderWorker/Dockerfile
+    depends_on:
+      - culinaryrecipes_rabbitmq
+      - culinaryrecipes_api
+
+  culinaryrecipes_usersubscriptionemailsenderworker2:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesusersubscriptionemailsenderworker
+    build:
+      context: .
+      dockerfile: Systems/Workers/CulinaryRecipes.Workers.UserSubscriptionEmailSenderWorker/Dockerfile
+    depends_on:
+      - culinaryrecipes_rabbitmq
+      - culinaryrecipes_api
+
+  culinaryrecipes_recipesubscriptionemailsenderworker1:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesrecipesubscriptionemailsenderworker
+    build:
+      context: .
+      dockerfile: Systems/Workers/CulinaryRecipes.Workers.RecipeSubscriptionEmailSenderWorker/Dockerfile
+    depends_on:
+      - culinaryrecipes_rabbitmq
+      - culinaryrecipes_api
+
+  culinaryrecipes_recipesubscriptionemailsenderworker2:
+    image: ${DOCKER_REGISTRY-}culinaryrecipesrecipesubscriptionemailsenderworker
+    build:
+      context: .
+      dockerfile: Systems/Workers/CulinaryRecipes.Workers.RecipeSubscriptionEmailSenderWorker/Dockerfile
+    depends_on:
+      - culinaryrecipes_rabbitmq
+      - culinaryrecipes_api
+
   culinaryrecipes_redis:
     image: redis

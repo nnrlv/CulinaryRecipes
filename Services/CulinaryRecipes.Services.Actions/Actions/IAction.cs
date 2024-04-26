@@ -6,4 +6,8 @@ using CulinaryRecipes.Services.EmailSender;
 public interface IAction
 {
     Task SendEmail(EmailModel model);
+
+    Task SendNewRecipeFromUserSubscriptionInfo(EmailModel model);
+
+    Task SendNewCommentFromRecipeSubscriptionInfo(EmailModel model);
 }

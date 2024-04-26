@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{B2E0
 		env.api = env.api
 		env.emailsenderworker = env.emailsenderworker
 		env.identity = env.identity
+		env.recipesubscriptionemailsenderworker = env.recipesubscriptionemailsenderworker
+		env.usersubscriptionemailsenderworker = env.usersubscriptionemailsenderworker
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{AD4449BD-6636-4FE0-A0A3-D77ED66E1D8D}"
@@ -77,7 +79,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Context.Mig
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Comments", "Services\CulinaryRecipes.Services.Comments\CulinaryRecipes.Services.Comments.csproj", "{D4CC529D-5675-4EEE-9EDC-C265D2396830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CulinaryRecipes.Services.Subscriptions", "Services\CulinaryRecipes.Services.Subscriptions\CulinaryRecipes.Services.Subscriptions.csproj", "{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Services.Subscriptions", "Services\CulinaryRecipes.Services.Subscriptions\CulinaryRecipes.Services.Subscriptions.csproj", "{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserSubscriptionEmailSenderWorker", "UserSubscriptionEmailSenderWorker", "{247F69E4-8175-4B35-86E0-C51D36856525}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Workers.UserSubscriptionEmailSenderWorker", "Systems\Workers\CulinaryRecipes.Workers.UserSubscriptionEmailSenderWorker\CulinaryRecipes.Workers.UserSubscriptionEmailSenderWorker.csproj", "{7A1B1811-FF17-4190-A17A-27D310FA5732}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeSubscriptionEmailSenderWorker", "RecipeSubscriptionEmailSenderWorker", "{59750B9A-6F54-44D2-BDED-BBB5C4EF4238}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CulinaryRecipes.Workers.RecipeSubscriptionEmailSenderWorker", "Systems\Workers\CulinaryRecipes.Workers.RecipeSubscriptionEmailSenderWorker\CulinaryRecipes.Workers.RecipeSubscriptionEmailSenderWorker.csproj", "{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +183,14 @@ Global
 		{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A1B1811-FF17-4190-A17A-27D310FA5732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A1B1811-FF17-4190-A17A-27D310FA5732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A1B1811-FF17-4190-A17A-27D310FA5732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A1B1811-FF17-4190-A17A-27D310FA5732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -206,6 +224,10 @@ Global
 		{39767FE5-9F43-4C15-A775-33AE7DABCAB7} = {916F722A-77AE-410D-BC2D-19A8E2314DFF}
 		{D4CC529D-5675-4EEE-9EDC-C265D2396830} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
 		{F5A08A55-0EA1-4C54-8DD7-3782C4E7D01C} = {C8CB1CFB-A3A2-41C4-AEEC-26DBF765B4C5}
+		{247F69E4-8175-4B35-86E0-C51D36856525} = {D220FED2-2BD0-4A65-B076-8D962E588564}
+		{7A1B1811-FF17-4190-A17A-27D310FA5732} = {247F69E4-8175-4B35-86E0-C51D36856525}
+		{59750B9A-6F54-44D2-BDED-BBB5C4EF4238} = {D220FED2-2BD0-4A65-B076-8D962E588564}
+		{F9B5EB51-36A7-4C4E-93C9-D1712F0C2795} = {59750B9A-6F54-44D2-BDED-BBB5C4EF4238}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42FE4206-6809-4371-971B-ED460E316145}

@@ -46,6 +46,30 @@ services:
     env_file:
       - env.emailsenderworker
 
+  culinaryrecipes_usersubscriptionemailsenderworker1:
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.usersubscriptionemailsenderworker
+
+  culinaryrecipes_usersubscriptionemailsenderworker2:
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.usersubscriptionemailsenderworker
+
+  culinaryrecipes_recipesubscriptionemailsenderworker1:
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.recipesubscriptionemailsenderworker
+
+  culinaryrecipes_recipesubscriptionemailsenderworker2:
+    networks:
+      - shared_culinaryrecipes_net
+    env_file:
+      - env.recipesubscriptionemailsenderworker
+
   culinaryrecipes_redis:
     ports:
       - "6379:6379"

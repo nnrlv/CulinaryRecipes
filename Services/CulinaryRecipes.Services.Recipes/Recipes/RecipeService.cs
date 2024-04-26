@@ -4,9 +4,7 @@ using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
 using Microsoft.EntityFrameworkCore;
 using CulinaryRecipes.Common.Validator;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.IdentityModel.Tokens;
-using StackExchange.Redis;
+using CulinaryRecipes.Services.Subscriptions;
 
 namespace CulinaryRecipes.Services.Recipes;
 
@@ -17,19 +15,22 @@ public class RecipeService : IRecipeService
     private readonly IModelValidator<CreateRecipeModel> createModelValidator;
     private readonly IModelValidator<UpdateRecipeModel> updateModelValidator;
     private readonly ICacheService cacheService;
+    private readonly ISubscriptionService subscriptionService;
 
     public RecipeService(
         IDbContextFactory<MainDbContext> dbContextFactory,
         IMapper mapper,
         IModelValidator<CreateRecipeModel> createModelValidator,
         IModelValidator<UpdateRecipeModel> updateModelValidator,
-        ICacheService cacheService)
+        ICacheService cacheService,
+        ISubscriptionService subscriptionService)
     {
         this.dbContextFactory = dbContextFactory;
         this.mapper = mapper;
         this.createModelValidator = createModelValidator;
         this.updateModelValidator = updateModelValidator;
         this.cacheService = cacheService;
+        this.subscriptionService = subscriptionService;
     }
 
     public async Task<IEnumerable<ShortRecipeModel>> GetAllShortRecipes()
@@ -269,6 +270,8 @@ public class RecipeService : IRecipeService
 
         await context.Recipes.AddAsync(recipe);
         await context.SaveChangesAsync();
+
+        await subscriptionService.SendEmailToUserSubscribersAboutNewRecipe(user.Id, recipe.Name);
 
         return mapper.Map<ShortRecipeModel>(recipe);
     }

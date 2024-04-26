@@ -10,6 +10,7 @@
     <ProjectReference Include="..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
     <ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
     <ProjectReference Include="..\CulinaryRecipes.Services.Cache\CulinaryRecipes.Services.Cache.csproj" />
+    <ProjectReference Include="..\CulinaryRecipes.Services.Subscriptions\CulinaryRecipes.Services.Subscriptions.csproj" />
   </ItemGroup>
 
 </Project>

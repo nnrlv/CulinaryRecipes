@@ -59,6 +59,9 @@ public static class AuthConfiguration
             options.AddPolicy(AppScopes.CategoriesRead, policy => policy.RequireClaim("scope", AppScopes.CategoriesRead));
             options.AddPolicy(AppScopes.CategoriesWrite, policy => policy.RequireClaim("scope", AppScopes.CategoriesWrite));
             options.AddPolicy(AppScopes.RecipesWrite, policy => policy.RequireClaim("scope", AppScopes.RecipesWrite));
+            options.AddPolicy(AppScopes.CommentsRead, policy => policy.RequireClaim("scope", AppScopes.CommentsRead));
+            options.AddPolicy(AppScopes.CommentsWrite, policy => policy.RequireClaim("scope", AppScopes.CommentsWrite));
+            options.AddPolicy(AppScopes.Subscribe, policy => policy.RequireClaim("scope", AppScopes.Subscribe));
         });
 
         return services;

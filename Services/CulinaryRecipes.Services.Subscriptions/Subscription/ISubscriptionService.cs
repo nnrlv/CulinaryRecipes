@@ -9,4 +9,8 @@ public interface ISubscriptionService
     Task SubscribeToRecipe(Guid subscriberId, Guid recipeId);
 
     Task UnsubscribeFromRecipe(Guid subscriberId, Guid recipeId);
+
+    Task SendEmailToUserSubscribersAboutNewRecipe(Guid authorId, string recipeName);
+
+    Task SendEmailToRecipeSubscribersAboutNewComment(Guid recipeId);
 }

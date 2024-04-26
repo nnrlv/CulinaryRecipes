@@ -4,6 +4,7 @@ using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
 using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
+using CulinaryRecipes.Services.Subscriptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Comments;
@@ -14,17 +15,20 @@ public class CommentService : ICommentService
     private readonly IMapper mapper;
     private readonly IModelValidator<CreateCommentModel> createModelValidator;
     private readonly ICacheService cacheService;
+    private readonly ISubscriptionService subscriptionService;
 
     public CommentService(
         IDbContextFactory<MainDbContext> dbContextFactory,
         IMapper mapper,
         IModelValidator<CreateCommentModel> createModelValidator,
-        ICacheService cacheService)
+        ICacheService cacheService,
+        ISubscriptionService subscriptionService)
     {
         this.dbContextFactory = dbContextFactory;
         this.mapper = mapper;
         this.createModelValidator = createModelValidator;
         this.cacheService = cacheService;
+        this.subscriptionService = subscriptionService;
     }
 
     public async Task<IEnumerable<CommentModel>> GetAllByRecipeId(Guid recipeId)
@@ -163,6 +167,8 @@ public class CommentService : ICommentService
 
         await context.Entry(comment).Reference(x => x.Recipe).LoadAsync();
         await context.Entry(comment).Reference(x => x.User).LoadAsync();
+
+        await subscriptionService.SendEmailToRecipeSubscribersAboutNewComment(model.RecipeId);
 
         return mapper.Map<CommentModel>(comment);
     }

@@ -1,7 +1,7 @@
 ﻿namespace CulinaryRecipes.Services.Actions;
 
-using CulinaryRecipes.Services.RabbitMq;
 using CulinaryRecipes.Services.EmailSender;
+using CulinaryRecipes.Services.RabbitMq;
 using System.Threading.Tasks;
 
 public class Action : IAction
@@ -16,5 +16,15 @@ public class Action : IAction
     public async Task SendEmail(EmailModel email)
     {
         await rabbitMq.PushAsync(QueueNames.SEND_EMAIL, email);
+    }
+
+    public async Task SendNewRecipeFromUserSubscriptionInfo(EmailModel email)
+    {
+        await rabbitMq.PushAsync(QueueNames.SEND_EMAIL_USER_SUBSCRIPTION, email);
+    }
+
+    public async Task SendNewCommentFromRecipeSubscriptionInfo(EmailModel email)
+    {
+        await rabbitMq.PushAsync(QueueNames.SEND_EMAIL_RECIPE_SUBSCRIPTION, email);
     }
 }
