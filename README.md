@@ -72,4 +72,4 @@ All of the application's functionality can be found in Swagger at **http://local
 - Unit & Integration testing
 
 ## Database model
-![Image](https://github.com/nnr1v/CulinaryRecipes/blob/main/culinary-recipes-db.jpg)
+![Image](https://github.com/nnrlv/CulinaryRecipes/blob/main/culinary-recipes-db.jpg)
