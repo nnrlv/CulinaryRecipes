@@ -6,9 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Ingredients;
 
+/// <summary>
+/// Represents a model for updating an ingredient.
+/// </summary>
 public class UpdateIngredientModel
 {
+    /// <summary>
+    /// The name of the ingredient.
+    /// </summary>
     public string Name { get; set; }
+
+    /// <summary>
+    /// The unit of measurement for the ingredient.
+    /// </summary>
     public string UnitOfMeasurement { get; set; }
 }
 

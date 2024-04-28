@@ -4,19 +4,54 @@ using FluentValidation;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Represents a model for updating a recipe.
+/// </summary>
 public class UpdateRecipeModel
 {
+    /// <summary>
+    /// The new name of the recipe.
+    /// </summary>
     public string Name { get; set; }
 
+    /// <summary>
+    /// The new preparation time of the recipe.
+    /// </summary>
     public float PreparationTime { get; set; }
+
+    /// <summary>
+    /// The new cooking time of the recipe.
+    /// </summary>
     public float CookingTime { get; set; }
 
+    /// <summary>
+    /// The new description of the recipe.
+    /// </summary>
     public string Description { get; set; }
+
+    /// <summary>
+    /// The new instructions for preparing the recipe.
+    /// </summary>
     public string Instructions { get; set; }
 
+    /// <summary>
+    /// The new number of calories in the recipe.
+    /// </summary>
     public float Calories { get; set; }
+
+    /// <summary>
+    /// The new amount of proteins in the recipe.
+    /// </summary>
     public float Proteins { get; set; }
+
+    /// <summary>
+    /// The new amount of carbohydrates in the recipe.
+    /// </summary>
     public float Carbohydrates { get; set; }
+
+    /// <summary>
+    /// The new amount of fats in the recipe.
+    /// </summary>
     public float Fats { get; set; }
 }
 

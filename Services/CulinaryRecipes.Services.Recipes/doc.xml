@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Recipes</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.Recipes.CategoryInRecipeModel">
+            <summary>
+            Represents a category in a recipe model.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CategoryInRecipeModel.RecipeId">
+            <summary>
+            The ID of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CategoryInRecipeModel.CategoryId">
+            <summary>
+            The ID of the category.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.IngredientInRecipeModel">
+            <summary>
+            Represents an ingredient in a recipe model.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.IngredientInRecipeModel.RecipeId">
+            <summary>
+            The ID of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.IngredientInRecipeModel.IngredientId">
+            <summary>
+            The ID of the ingredient.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.IRecipeService">
+            <summary>
+            Interface of service for managing recipes.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetAllShortRecipes">
+            <summary>
+            Gets all recipes in a short format.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetAllShortRecipesWithCaching">
+            <summary>
+            Gets all recipes in a short format with caching.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetFilteredShortRecipesWithCaching(System.String,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.String)">
+            <summary>
+            Gets filtered recipes in a short format with caching based on the specified criteria.
+            </summary>
+            <param name="userName">The name of the user who created the recipe.</param>
+            <param name="minPreparationTime">The minimum preparation time of the recipe.</param>
+            <param name="maxPreparationTime">The maximum preparation time of the recipe.</param>
+            <param name="minCookingTime">The minimum cooking time of the recipe.</param>
+            <param name="maxCookingTime">The maximum cooking time of the recipe.</param>
+            <param name="categoryName">The name of the category the recipe belongs to.</param>
+            <returns>The filtered recipes.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetShortRecipeById(System.Guid)">
+            <summary>
+            Gets a recipe in a short format by its ID.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The recipe in a short format.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetShortRecipeByIdWithCaching(System.Guid)">
+            <summary>
+            Gets a recipe in a short format by its ID with caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The recipe in a short format.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetFullRecipeById(System.Guid)">
+            <summary>
+            Gets a recipe in a full format by its ID.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The recipe in a full format.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetFullRecipeByIdWithCaching(System.Guid)">
+            <summary>
+            Gets a recipe in a full format by its ID with caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The recipe in a full format.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.GetIngredientsOfRecipe(System.Guid)">
+            <summary>
+            Gets the ingredients of a recipe by its ID.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <returns>The ingredients of the recipe.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.Create(CulinaryRecipes.Services.Recipes.CreateRecipeModel,System.String)">
+            <summary>
+            Creates a new recipe based on the specified model.
+            </summary>
+            <param name="model">The model containing information about the recipe to create.</param>
+            <param name="userId">The ID of the user creating the recipe.</param>
+            <returns>The created recipe in a short format.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.AddIngredientInRecipe(System.Guid,System.Guid)">
+            <summary>
+            Adds an ingredient to a recipe.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <param name="ingredientId">The ID of the ingredient to add.</param>
+            <returns>The ingredient in recipe model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.AddCategoryToRecipe(System.Guid,System.Guid)">
+            <summary>
+            Adds a category to a recipe.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <param name="categoryId">The ID of the category to add.</param>
+            <returns>The category in recipe model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.Update(System.Guid,CulinaryRecipes.Services.Recipes.UpdateRecipeModel)">
+            <summary>
+            Updates an existing recipe with the specified ID using the information from the provided model.
+            </summary>
+            <param name="id">The ID of the recipe to update.</param>
+            <param name="model">The model containing the updated information for the recipe.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.IRecipeService.Delete(System.Guid)">
+            <summary>
+            Deletes the recipe with the specified ID.
+            </summary>
+            <param name="id">The ID of the recipe to delete.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.CreateRecipeModel">
+            <summary>
+            Represents a model for creating a recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Name">
+            <summary>
+            The name of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.PreparationTime">
+            <summary>
+            The preparation time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.CookingTime">
+            <summary>
+            The cooking time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Description">
+            <summary>
+            The description of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Instructions">
+            <summary>
+            The instructions for preparing the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Calories">
+            <summary>
+            The number of calories in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Proteins">
+            <summary>
+            The amount of proteins in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Carbohydrates">
+            <summary>
+            The amount of carbohydrates in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.CreateRecipeModel.Fats">
+            <summary>
+            The amount of fats in the recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.FullRecipeModel">
+            <summary>
+            Represents a model for a full recipe, including detailed information.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.PreparationTime">
+            <summary>
+            The preparation time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.CookingTime">
+            <summary>
+            The cooking time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Description">
+            <summary>
+            The description of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Instructions">
+            <summary>
+            The instructions for preparing the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Calories">
+            <summary>
+            The number of calories in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Proteins">
+            <summary>
+            The amount of proteins in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Carbohydrates">
+            <summary>
+            The amount of carbohydrates in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.Fats">
+            <summary>
+            The amount of fats in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.IngredientsInRecipe">
+            <summary>
+            The IDs of the ingredients in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.FullRecipeModel.CategoriesInRecipe">
+            <summary>
+            The IDs of the categories associated with the recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.ShortRecipeModel">
+            <summary>
+            Represents a model for a short recipe, including basic information.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.ShortRecipeModel.Id">
+            <summary>
+            The ID of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.ShortRecipeModel.UserId">
+            <summary>
+            The ID of the user who created the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.ShortRecipeModel.Name">
+            <summary>
+            The name of the recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.UpdateRecipeModel">
+            <summary>
+            Represents a model for updating a recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Name">
+            <summary>
+            The new name of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.PreparationTime">
+            <summary>
+            The new preparation time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.CookingTime">
+            <summary>
+            The new cooking time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Description">
+            <summary>
+            The new description of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Instructions">
+            <summary>
+            The new instructions for preparing the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Calories">
+            <summary>
+            The new number of calories in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Proteins">
+            <summary>
+            The new amount of proteins in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Carbohydrates">
+            <summary>
+            The new amount of carbohydrates in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Recipes.UpdateRecipeModel.Fats">
+            <summary>
+            The new amount of fats in the recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Recipes.RecipeService">
+            <summary>
+            Service for managing recipes.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetAllShortRecipes">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetAllShortRecipesWithCaching">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetFilteredShortRecipesWithCaching(System.String,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetShortRecipeById(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetShortRecipeByIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetFullRecipeById(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetFullRecipeByIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.GetIngredientsOfRecipe(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.Create(CulinaryRecipes.Services.Recipes.CreateRecipeModel,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.AddIngredientInRecipe(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.AddCategoryToRecipe(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.Update(System.Guid,CulinaryRecipes.Services.Recipes.UpdateRecipeModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Recipes.RecipeService.Delete(System.Guid)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -2,10 +2,24 @@
 
 using FluentValidation;
 
+/// <summary>
+/// Represents a model for creating a user account.
+/// </summary>
 public class CreateUserAccountModel
 {
+    /// <summary>
+    /// The name of the user.
+    /// </summary>
     public string Name { get; set; }
+
+    /// <summary>
+    /// The email address of the user.
+    /// </summary>
     public string Email { get; set; }
+
+    /// <summary>
+    /// The password of the user.
+    /// </summary>
     public string Password { get; set; }
 }
 

@@ -5,6 +5,9 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Service for sending emails.
+/// </summary>
 public class EmailSender : IEmailSender
 {
     private readonly EmailSenderSettings settings;
@@ -14,6 +17,7 @@ public class EmailSender : IEmailSender
         this.settings = settings;
     }
 
+    /// <inheritdoc/>
     public async Task SendEmailAsync(EmailModel model)
     {
         var email = new MimeMessage();

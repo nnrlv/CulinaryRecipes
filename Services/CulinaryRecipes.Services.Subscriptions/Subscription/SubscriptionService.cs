@@ -7,6 +7,9 @@ using CulinaryRecipes.Services.EmailSender;
 
 namespace CulinaryRecipes.Services.Subscriptions;
 
+/// <summary>
+/// Service for managing subscriptions.
+/// </summary>
 public class SubscriptionService : ISubscriptionService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -23,6 +26,7 @@ public class SubscriptionService : ISubscriptionService
         this.action = action;
     }
 
+    /// <inheritdoc/>
     public async Task SubscribeToUser(Guid subscriberId, Guid authorId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -55,6 +59,7 @@ public class SubscriptionService : ISubscriptionService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task UnsubscribeFromUser(Guid subscriberId, Guid authorId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -81,6 +86,7 @@ public class SubscriptionService : ISubscriptionService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task SubscribeToRecipe(Guid subscriberId, Guid recipeId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -113,6 +119,7 @@ public class SubscriptionService : ISubscriptionService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task UnsubscribeFromRecipe(Guid subscriberId, Guid recipeId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -139,6 +146,7 @@ public class SubscriptionService : ISubscriptionService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task SendEmailToUserSubscribersAboutNewRecipe(Guid authorId, string recipeName)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -172,6 +180,7 @@ public class SubscriptionService : ISubscriptionService
         }
     }
 
+    /// <inheritdoc/>
     public async Task SendEmailToRecipeSubscribersAboutNewComment(Guid recipeId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();

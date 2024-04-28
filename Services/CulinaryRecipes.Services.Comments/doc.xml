@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Comments</name>
+    </assembly>
+    <members>
+        <member name="M:CulinaryRecipes.Services.Comments.Bootstrapper.AddCommentService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds comments services to the service collection.
+            </summary>
+            <param name="services">The IServiceCollection to add the comments services to.</param>
+            <returns>The modified IServiceCollection.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Comments.CommentService">
+            <summary>
+            Service for managing comments.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetAllByRecipeId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetAllByRecipeIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetAllByUserId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetAllByUserIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetById(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.GetByIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.Create(CulinaryRecipes.Services.Comments.CreateCommentModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.CommentService.Delete(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Comments.ICommentService">
+            <summary>
+            Service for managing comments.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetAllByRecipeId(System.Guid)">
+            <summary>
+            Gets all comments for a given recipe ID.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <returns>The task result contains a collection of comment models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetAllByRecipeIdWithCaching(System.Guid)">
+            <summary>
+            Gets all comments for a given recipe ID with caching.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <returns>The task result contains a collection of comment models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetAllByUserId(System.Guid)">
+            <summary>
+            Gets all comments for a given user ID.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <returns>The task result contains a collection of comment models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetAllByUserIdWithCaching(System.Guid)">
+            <summary>
+            Gets all comments for a given user ID with caching.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <returns>The task result contains a collection of comment models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetById(System.Guid)">
+            <summary>
+            Gets a comment by ID.
+            </summary>
+            <param name="id">The ID of the comment.</param>
+            <returns>The task result contains the comment model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.GetByIdWithCaching(System.Guid)">
+            <summary>
+            Gets a comment by ID with caching.
+            </summary>
+            <param name="id">The ID of the comment.</param>
+            <returns>The task result contains the comment model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.Create(CulinaryRecipes.Services.Comments.CreateCommentModel)">
+            <summary>
+            Creates a new comment.
+            </summary>
+            <param name="model">The model for creating the comment.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Comments.ICommentService.Delete(System.Guid)">
+            <summary>
+            Deletes a comment by ID.
+            </summary>
+            <param name="id">The ID of the comment to delete.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Comments.CommentModel">
+            <summary>
+            Represents a model for a comment.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CommentModel.Id">
+            <summary>
+            The ID of the comment.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CommentModel.UserId">
+            <summary>
+            The ID of the user who posted the comment.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CommentModel.RecipeId">
+            <summary>
+            The ID of the recipe the comment belongs to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CommentModel.Text">
+            <summary>
+            The text of the comment.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Comments.CreateCommentModel">
+            <summary>
+            Represents a model for creating a comment.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CreateCommentModel.UserId">
+            <summary>
+            The ID of the user who posted the comment.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CreateCommentModel.RecipeId">
+            <summary>
+            The ID of the recipe the comment belongs to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Comments.CreateCommentModel.Text">
+            <summary>
+            The text of the comment.
+            </summary>
+        </member>
+    </members>
+</doc>

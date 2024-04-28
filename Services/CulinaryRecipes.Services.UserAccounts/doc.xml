@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.UserAccounts</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.UserAccounts.IUserAccountService">
+            <summary>
+            Interface for a service for managing user accounts.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.IsEmpty">
+            <summary>
+            Checks if the user account database is empty.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.Create(CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel)">
+            <summary>
+            Creates a new user account based on the specified model.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.RequestEmailConfirmation(System.String)">
+            <summary>
+            Sends a request for email confirmation to the specified email address.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.ConfirmEmail(System.String,System.String)">
+            <summary>
+            Confirms the email address using the specified confirmation token.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.GetAll">
+            <summary>
+            Gets all user accounts.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.IUserAccountService.GetById(System.Guid)">
+            <summary>
+            Gets a user account by its ID.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel">
+            <summary>
+            Represents a model for creating a user account.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel.Name">
+            <summary>
+            The name of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel.Email">
+            <summary>
+            The email address of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel.Password">
+            <summary>
+            The password of the user.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.UserAccounts.UserAccountModel">
+            <summary>
+            Represents a user account model.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.UserAccountModel.Id">
+            <summary>
+            The ID of the user account.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.UserAccountModel.Name">
+            <summary>
+            The name of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.UserAccounts.UserAccountModel.Email">
+            <summary>
+            The email address of the user.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.UserAccounts.UserAccountService">
+            <summary>
+            Service for managing user accounts.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.IsEmpty">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.Create(CulinaryRecipes.Services.UserAccounts.CreateUserAccountModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.RequestEmailConfirmation(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.ConfirmEmail(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.UserAccounts.UserAccountService.GetById(System.Guid)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

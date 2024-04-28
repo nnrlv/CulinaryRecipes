@@ -5,10 +5,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Represents a model for a short recipe, including basic information.
+/// </summary>
 public class ShortRecipeModel
 {
+    /// <summary>
+    /// The ID of the recipe.
+    /// </summary>
     public Guid Id { get; set; }
+
+    /// <summary>
+    /// The ID of the user who created the recipe.
+    /// </summary>
     public Guid UserId { get; set; }
+
+    /// <summary>
+    /// The name of the recipe.
+    /// </summary>
     public string Name { get; set; }
 }
 

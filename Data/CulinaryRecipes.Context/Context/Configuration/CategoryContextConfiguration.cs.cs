@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 public static class CategoryContextConfiguration
 {
+    /// <summary>
+    /// Configures the relationships and table mapping for the Category entity.
+    /// </summary>
+    /// <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
     public static void ConfigureCategories(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>().ToTable("categories");

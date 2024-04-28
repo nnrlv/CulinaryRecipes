@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 public static class UserSubscriptionContextConfiguration
 {
+    /// <summary>
+    /// Configures the relationships and table mapping for the UserSubscription entity.
+    /// </summary>
+    /// <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
     public static void ConfigureUserSubscriptions(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<UserSubscription>().ToTable("user_subscriptions");

@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>doc.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
-    <ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
-    <ProjectReference Include="..\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
-    <ProjectReference Include="..\CulinaryRecipes.Services.EmailSender\CulinaryRecipes.Services.EmailSender.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
+		<ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
+		<ProjectReference Include="..\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
+		<ProjectReference Include="..\CulinaryRecipes.Services.EmailSender\CulinaryRecipes.Services.EmailSender.csproj" />
+	</ItemGroup>
 
 </Project>

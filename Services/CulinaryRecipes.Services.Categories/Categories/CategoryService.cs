@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Categories;
 
+/// <summary>
+/// Service for managing categories.
+/// </summary>
 public class CategoryService : ICategoryService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -30,6 +33,7 @@ public class CategoryService : ICategoryService
         this.cacheService = cacheService;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CategoryModel>> GetAll()
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -41,6 +45,7 @@ public class CategoryService : ICategoryService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CategoryModel>> GetAllWithCaching()
     {
         var cacheKey = "AllCategories";
@@ -62,6 +67,7 @@ public class CategoryService : ICategoryService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CategoryModel> GetById(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -73,6 +79,7 @@ public class CategoryService : ICategoryService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CategoryModel> GetByIdWithCaching(Guid id)
     {
         var cacheKey = $"Category_{id}";
@@ -94,6 +101,7 @@ public class CategoryService : ICategoryService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CategoryModel> Create(CreateCategoryModel model)
     {
         await createModelValidator.CheckAsync(model);
@@ -108,6 +116,7 @@ public class CategoryService : ICategoryService
         return mapper.Map<CategoryModel>(category);
     }
 
+    /// <inheritdoc/>
     public async Task Update(Guid id, UpdateCategoryModel model)
     {
         await updateModelValidator.CheckAsync(model);
@@ -123,6 +132,7 @@ public class CategoryService : ICategoryService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task Delete(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

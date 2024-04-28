@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 public static class RecipeInCategoryContextConfiguration
 {
+    /// <summary>
+    /// Configures the relationships and table mapping for the RecipeInCategory entity.
+    /// </summary>
+    /// <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
     public static void ConfigureRecipesInCategories(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<RecipeInCategory>().ToTable("recipes_in_categories");

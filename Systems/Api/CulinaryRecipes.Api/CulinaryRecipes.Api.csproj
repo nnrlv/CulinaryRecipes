@@ -1,51 +1,53 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>doc.xml</DocumentationFile>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Versioning" Version="5.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
-	<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.0.0" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
-	  <PrivateAssets>all</PrivateAssets>
-	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	</PackageReference>
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.3" />
-	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
-	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
-	<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
-    <PackageReference Include="Serilog" Version="3.1.1" />
-	<PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Versioning" Version="5.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+		<PackageReference Include="Serilog" Version="3.1.1" />
+		<PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL.csproj" />
-    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
-    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
-    <ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Cache\CulinaryRecipes.Services.Cache.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Categories\CulinaryRecipes.Services.Categories.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Comments\CulinaryRecipes.Services.Comments.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Recipes\CulinaryRecipes.Services.Recipes.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Subscriptions\CulinaryRecipes.Services.Subscriptions.csproj" />
-    <ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.UserAccounts\CulinaryRecipes.Services.UserAccounts.csproj" />
-    <ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
-    <ProjectReference Include="..\CulinaryRecipes.Api.Settings\CulinaryRecipes.Api.Settings.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL\CulinaryRecipes.Context.Migrations.MSSQL.csproj" />
+		<ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Migrations\CulinaryRecipes.Context.Migrations.PgSQL\CulinaryRecipes.Context.Migrations.PgSQL.csproj" />
+		<ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context.Seeder\CulinaryRecipes.Context.Seeder.csproj" />
+		<ProjectReference Include="..\..\..\Data\CulinaryRecipes.Context\CulinaryRecipes.Context.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Ingredients\CulinaryRecipes.Services.Ingredients.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Actions\CulinaryRecipes.Services.Actions.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Cache\CulinaryRecipes.Services.Cache.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Categories\CulinaryRecipes.Services.Categories.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Comments\CulinaryRecipes.Services.Comments.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Logger\CulinaryRecipes.Services.Logger.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.RabbitMq\CulinaryRecipes.Services.RabbitMq.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Recipes\CulinaryRecipes.Services.Recipes.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Settings\CulinaryRecipes.Services.Settings.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.Subscriptions\CulinaryRecipes.Services.Subscriptions.csproj" />
+		<ProjectReference Include="..\..\..\Services\CulinaryRecipes.Services.UserAccounts\CulinaryRecipes.Services.UserAccounts.csproj" />
+		<ProjectReference Include="..\..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
+		<ProjectReference Include="..\CulinaryRecipes.Api.Settings\CulinaryRecipes.Api.Settings.csproj" />
+	</ItemGroup>
 
 </Project>

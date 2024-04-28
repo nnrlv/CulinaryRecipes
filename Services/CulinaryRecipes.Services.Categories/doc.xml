@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Categories</name>
+    </assembly>
+    <members>
+        <member name="M:CulinaryRecipes.Services.Categories.Bootstrapper.AddCategoryService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds categories services to the service collection.
+            </summary>
+            <param name="services">The IServiceCollection to add the caching services to.</param>
+            <returns>The modified IServiceCollection.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Categories.CategoryService">
+            <summary>
+            Service for managing categories.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.GetAllWithCaching">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.GetById(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.GetByIdWithCaching(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.Create(CulinaryRecipes.Services.Categories.CreateCategoryModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.Update(System.Guid,CulinaryRecipes.Services.Categories.UpdateCategoryModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.CategoryService.Delete(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Categories.ICategoryService">
+            <summary>
+            Represents a service for managing categories.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.GetAll">
+            <summary>
+            Gets all categories.
+            </summary>
+            <returns> The task result contains a collection of category models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.GetAllWithCaching">
+            <summary>
+            Gets all categories with caching.
+            </summary>
+            <returns>The task result contains a collection of category models.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.GetById(System.Guid)">
+            <summary>
+            Gets a category by ID.
+            </summary>
+            <param name="id">The ID of the category.</param>
+            <returns>The task result contains the category model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.GetByIdWithCaching(System.Guid)">
+            <summary>
+            Gets a category by ID with caching.
+            </summary>
+            <param name="id">The ID of the category.</param>
+            <returns>The task result contains the category model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.Create(CulinaryRecipes.Services.Categories.CreateCategoryModel)">
+            <summary>
+            Creates a new category.
+            </summary>
+            <param name="model">The model for creating the category.</param>
+            <returns>The task result contains the created category model.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.Update(System.Guid,CulinaryRecipes.Services.Categories.UpdateCategoryModel)">
+            <summary>
+            Updates a category.
+            </summary>
+            <param name="id">The ID of the category to update.</param>
+            <param name="model">The model for updating the category.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Categories.ICategoryService.Delete(System.Guid)">
+            <summary>
+            Deletes a category.
+            </summary>
+            <param name="id">The ID of the category to delete.</param>
+        </member>
+    </members>
+</doc>

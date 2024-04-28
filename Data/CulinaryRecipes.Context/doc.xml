@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Context</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Context.Bootstrapper">
+            <summary>
+            A static class for bootstrapping the application's database context.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Context.Bootstrapper.AddAppDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds the application's database context to the specified IServiceCollection>.
+            </summary>
+            <param name="services">The IServiceCollection to add the database context to.</param>
+            <param name="configuration">The optional IConfiguration for loading database settings.</param>
+            <returns>The modified IServiceCollection.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Context.CategoryContextConfiguration.ConfigureCategories(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the Category entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.CommentContextConfiguration.ConfigureComments(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the Comment entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.IngredientContextConfiguration.ConfigureIngredients(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the Ingredient entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.IngredientInRecipeContextConfiguration.ConfigureIngredientsInRecipes(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the IngredientInRecipe entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.RecipeContextConfiguration.ConfigureRecipes(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the Recipe entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.RecipeInCategoryContextConfiguration.ConfigureRecipesInCategories(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the RecipeInCategory entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.RecipeSubscriptionContextConfiguration.ConfigureRecipeSubscriptions(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the RecipeSubscription entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.UserContextConfiguration.ConfigureUsers(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the User entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.UserSubscriptionContextConfiguration.ConfigureUserSubscriptions(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the relationships and table mapping for the UserSubscription entity.
+            </summary>
+            <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Context.MainDbContext">
+            <summary>
+            Represents the main database context for the application, derived from IdentityDbContext
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.Recipes">
+            <summary>
+            DbSet of recipes entites
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.Ingredients">
+            <summary>
+            DbSet of ingredients entites
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.IngredientsInRecipes">
+            <summary>
+            DbSet of join entities between recipes and ingredients
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.Categories">
+            <summary>
+            DbSet of categories entites
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.RecipesInCategories">
+            <summary>
+            DbSet of join entities between recipes and categories
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.Users">
+            <summary>
+            DbSet of users entites
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.Comments">
+            <summary>
+            DbSet of comments entites
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.UserSubscriptions">
+            <summary>
+            DbSet of user subscriptions entites (when user subscribes to the author, 
+            he completes this subscription and receives email notifications about new recipes from the author)
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.MainDbContext.RecipeSubscriptions">
+            <summary>
+            DbSet of recipe subscriptions entites (when user subscribes to the recipe, 
+            he completes this subscription and receives email notifications about new comments under this recipe)
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Context.MainDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the entity mappings for the database context using the provided <paramref name="modelBuilder"/>.
+            </summary>
+            <param name="modelBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder"/> instance used to configure the entity mappings.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Context.DbContextFactory">
+            <summary>
+            Factory for creating instances of MainDbContext.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Context.DbContextFactory.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{CulinaryRecipes.Context.MainDbContext})">
+            <summary>
+            Initializes a new instance of the DbContextFactory class.
+            </summary>
+            <param name="options">The options to be used for creating the MainDbContext.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Context.DbContextFactory.Create">
+            <summary>
+            Creates a new instance of MainDbContext.
+            </summary>
+            <returns>The created MainDbContext instance.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Context.DbContextOptionsFactory">
+            <summary>
+            Factory for creating DbContextOptions for the MainDbContext.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CulinaryRecipes.Context.DbContextOptionsFactory.Create(System.String,CulinaryRecipes.Context.DbType,System.Boolean)" -->
+        <member name="M:CulinaryRecipes.Context.DbContextOptionsFactory.Configure(System.String,CulinaryRecipes.Context.DbType,System.Boolean)">
+            <summary>
+            Configures the DbContextOptionsBuilder based on the database type and connection string.
+            </summary>
+            <param name="connStr">(string) The connection string for the database.</param>
+            <param name="dbType">(DbType) The type of the database (MSSQL or PgSQL).</param>
+            <param name="detailedLogging">(bool) Whether to enable detailed logging.</param>
+            <returns>(Action(DbContextOptionsBuilder)) The configured DbContextOptionsBuilder.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Context.DesignTimeDbContextFactory">
+            <summary>
+            A factory for creating instances of the MainDbContext class at design time.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Context.DesignTimeDbContextFactory.CreateDbContext(System.String[])">
+            <summary>
+            Creates a new instance of the MainDbContext class.
+            </summary>
+            <param name="args">Command-line arguments.</param>
+            <returns>A new instance of the MainDbContext class.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Context.DbSettings">
+            <summary>
+            Represents settings for the database connection.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbSettings.Type">
+            <summary>
+            Gets the type of the database.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbSettings.ConnectionString">
+            <summary>
+            Gets the connection string for the database.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbSettings.Init">
+            <summary>
+            Gets the initialization settings for the database.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.DbInitSettings">
+            <summary>
+            Represents initialization settings for the database.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbInitSettings.AddDemoData">
+            <summary>
+            Gets a value indicating whether to add demo data to the database.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbInitSettings.AddAdministrator">
+            <summary>
+            Gets a value indicating whether to add an administrator to the database.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.DbInitSettings.Administrator">
+            <summary>
+            Gets the credentials for the administrator user.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.UserCredentials">
+            <summary>
+            Represents user credentials.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.UserCredentials.Name">
+            <summary>
+            Gets the name of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.UserCredentials.Email">
+            <summary>
+            Gets the email address of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.UserCredentials.Password">
+            <summary>
+            Gets the password of the user.
+            </summary>
+        </member>
+    </members>
+</doc>

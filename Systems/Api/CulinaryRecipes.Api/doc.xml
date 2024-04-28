@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Api</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Api.Configuration.AutoMapperConfiguration">
+            <summary>
+            AutoMapper configuration
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.AutoMapperConfiguration.AddAppAutoMappers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add automappers
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Configuration.CorsConfiguration">
+            <summary>
+            CORS configuration
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.CorsConfiguration.AddAppCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add CORS
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.CorsConfiguration.UseAppCors(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Use service
+            </summary>
+            <param name="app">Application</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Configuration.LoggerConfiguration">
+            <summary>
+            Logger Configuration
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.LoggerConfiguration.AddAppLogger(Microsoft.AspNetCore.Builder.WebApplicationBuilder,CulinaryRecipes.Services.Settings.MainSettings,CulinaryRecipes.Services.Settings.LogSettings)">
+            <summary>
+            Add logger
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Configuration.SwaggerConfiguration">
+            <summary>
+            Swagger configuration
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,CulinaryRecipes.Services.Settings.IdentitySettings,CulinaryRecipes.Services.Settings.MainSettings,CulinaryRecipes.Services.Settings.SwaggerSettings)">
+            <summary>
+            Add OpenAPI to API
+            </summary>
+            <param name="services">Services collection</param>
+            <param name="mainSettings"></param>
+            <param name="swaggerSettings"></param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.SwaggerConfiguration.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Start OpenAPI UI
+            </summary>
+            <param name="app">Web application</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Configuration.VersioningConfiguration">
+            <summary>
+            Versioning configuration
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Configuration.VersioningConfiguration.AddAppVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add version support for API
+            </summary>
+            <param name="services">Services collection</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Controllers.Category.CategoryController">
+            <summary>
+            Controller for managing categories.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.#ctor(CulinaryRecipes.Services.Logger.IAppLogger,CulinaryRecipes.Services.Categories.ICategoryService,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the CategoryController class.
+            </summary>
+            <param name="logger">The logger service.</param>
+            <param name="categoryService">The category service.</param>
+            <param name="mapper">The mapper service.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.GetAll">
+            <summary>
+            Gets all categories without caching.
+            </summary>
+            <returns>A collection of category responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.GetAllWithCaching">
+            <summary>
+            Gets all categories with caching.
+            </summary>
+            <returns>A collection of category responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.Get(System.Guid)">
+            <summary>
+            Gets a category by ID without caching.
+            </summary>
+            <param name="id">The ID of the category.</param>
+            <returns>The category response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.GetWithCaching(System.Guid)">
+            <summary>
+            Gets a category by ID with caching.
+            </summary>
+            <param name="id">The ID of the category.</param>
+            <returns>The category response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.Create(CulinaryRecipes.Api.Controllers.Category.CreateCategoryRequest)">
+            <summary>
+            Creates a new category.
+            </summary>
+            <param name="request">The request to create a category.</param>
+            <returns>The created category response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.Update(System.Guid,CulinaryRecipes.Api.Controllers.Category.UpdateCategoryRequest)">
+            <summary>
+            Updates a category by ID.
+            </summary>
+            <param name="id">The ID of the category.</param>
+            <param name="request">The request to update the category.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Category.CategoryController.Delete(System.Guid)">
+            <summary>
+            Deletes a category by ID.
+            </summary>
+            <param name="id">The ID of the category.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Controllers.Comment.CommentController">
+            <summary>
+            Controller for managing comments.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.#ctor(AutoMapper.IMapper,CulinaryRecipes.Services.Logger.IAppLogger,CulinaryRecipes.Services.Comments.ICommentService)">
+            <summary>
+            Initializes a new instance of the CommentController class.
+            </summary>
+            <param name="mapper">The mapper service.</param>
+            <param name="logger">The logger service.</param>
+            <param name="commentService">The comment service.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.GetAllByRecipeId(System.Guid)">
+            <summary>
+            Gets all comments for a recipe by ID.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <returns>A collection of comment responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.GetAllByRecipeIdWithCaching(System.Guid)">
+            <summary>
+            Gets all comments for a recipe by ID with caching.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <returns>A collection of comment responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.GetAllByUserIdWithCaching(System.Guid)">
+            <summary>
+            Gets all comments by user ID.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <returns>A collection of comment responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.GetById(System.Guid)">
+            <summary>
+            Gets a comment by ID.
+            </summary>
+            <param name="id">The ID of the comment.</param>
+            <returns>The comment response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.GetByIdWithCaching(System.Guid)">
+            <summary>
+            Gets a comment by ID with caching.
+            </summary>
+            <param name="id">The ID of the comment.</param>
+            <returns>The comment response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.Create(CulinaryRecipes.Api.Controllers.Comment.CreateCommentRequest)">
+            <summary>
+            Creates a new comment.
+            </summary>
+            <param name="request">The request to create a comment.</param>
+            <returns>The created comment response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Comment.CommentController.Delete(System.Guid)">
+            <summary>
+            Deletes a comment by ID.
+            </summary>
+            <param name="id">The ID of the comment.</param>
+            <returns>An IActionResult representing the result of the operation.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController">
+            <summary>
+            Controller for managing ingredients.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.GetAllWithCaching">
+            <summary>
+            Gets all ingredients with caching.
+            </summary>
+            <returns>A collection of ingredient responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.GetAll">
+            <summary>
+            Gets all ingredients without caching.
+            </summary>
+            <returns>A collection of ingredient responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.GetWithCaching(System.Guid)">
+            <summary>
+            Gets an ingredient by ID with caching.
+            </summary>
+            <param name="id">The ID of the ingredient.</param>
+            <returns>The ingredient response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.Get(System.Guid)">
+            <summary>
+            Gets an ingredient by ID without caching.
+            </summary>
+            <param name="id">The ID of the ingredient.</param>
+            <returns>The ingredient response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.Create(CulinaryRecipes.Api.Controllers.Ingredient.CreateIngredientRequest)">
+            <summary>
+            Creates a new ingredient.
+            </summary>
+            <param name="request">The request to create an ingredient.</param>
+            <returns>The created ingredient response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.Update(System.Guid,CulinaryRecipes.Api.Controllers.Ingredient.UpdateIngredientRequest)">
+            <summary>
+            Updates an ingredient by ID.
+            </summary>
+            <param name="id">The ID of the ingredient.</param>
+            <param name="request">The request to update the ingredient.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Ingredient.IngredientController.Delete(System.Guid)">
+            <summary>
+            Deletes an ingredient by ID.
+            </summary>
+            <param name="id">The ID of the ingredient.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Controllers.Recipe.RecipeController">
+            <summary>
+            Controller for managing recipes.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetAllShortRecipes">
+            <summary>
+            Gets all short recipes without caching.
+            </summary>
+            <returns>A collection of short recipe responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetAllShortRecipesWithCaching">
+            <summary>
+            Gets all short recipes with caching.
+            </summary>
+            <returns>A collection of short recipe responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetFilteredShortRecipes(System.String,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.String)">
+            <summary>
+            Gets filtered short recipes with caching based on specified criteria.
+            </summary>
+            <param name="userName">The user name to filter by.</param>
+            <param name="minPreparationTime">The minimum preparation time to filter by.</param>
+            <param name="maxPreparationTime">The maximum preparation time to filter by.</param>
+            <param name="minCookingTime">The minimum cooking time to filter by.</param>
+            <param name="maxCookingTime">The maximum cooking time to filter by.</param>
+            <param name="categoryName">The category name to filter by.</param>
+            <returns>A collection of filtered short recipe responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetShortRecipe(System.Guid)">
+            <summary>
+            Gets a short recipe by ID without caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The short recipe response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetShortRecipeWithCaching(System.Guid)">
+            <summary>
+            Gets a short recipe by ID with caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The short recipe response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetIngredientsOfRecipe(System.Guid)">
+            <summary>
+            Gets the ingredients of a recipe by recipe ID.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The ingredients of the recipe.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetFullRecipeById(System.Guid)">
+            <summary>
+            Gets the full information of a recipe by ID without caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The full recipe response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.GetFullRecipeByIdWithCaching(System.Guid)">
+            <summary>
+            Gets the full information of a recipe by ID with caching.
+            </summary>
+            <param name="id">The ID of the recipe.</param>
+            <returns>The full recipe response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.Create(System.Guid,CulinaryRecipes.Api.Controllers.Recipe.CreateRecipeRequest)">
+            <summary>
+            Creates a new recipe.
+            </summary>
+            <param name="userId">The ID of the user creating the recipe.</param>
+            <param name="model">The model containing the details of the recipe to create.</param>
+            <returns>The created short recipe response.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.AddIngredientInRecipe(System.Guid,System.Guid)">
+            <summary>
+            Adds an ingredient to a recipe.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <param name="ingredientId">The ID of the ingredient to add.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.AddCategoryToRecipe(System.Guid,System.Guid)">
+            <summary>
+            Adds a category to a recipe.
+            </summary>
+            <param name="recipeId">The ID of the recipe.</param>
+            <param name="categoryId">The ID of the category to add.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.Update(System.Guid,CulinaryRecipes.Api.Controllers.Recipe.UpdateRecipeRequest)">
+            <summary>
+            Updates a recipe.
+            </summary>
+            <param name="id">The ID of the recipe to update.</param>
+            <param name="model">The model containing the updated details of the recipe.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Recipe.RecipeController.Delete(System.Guid)">
+            <summary>
+            Deletes a recipe.
+            </summary>
+            <param name="id">The ID of the recipe to delete.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Subscription.SubscriptionController.SubscribeToUser(System.Guid,System.Guid)">
+            <summary>
+            Subscribes a user to another user.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Subscription.SubscriptionController.UnsuscribeFromUser(System.Guid,System.Guid)">
+            <summary>
+            Unsubscribes a user from another user.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Subscription.SubscriptionController.SubscribeToRecipe(System.Guid,System.Guid)">
+            <summary>
+            Subscribes a user to a recipe.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.Subscription.SubscriptionController.UnsuscribeFromRecipe(System.Guid,System.Guid)">
+            <summary>
+            Unsubscribes a user from a recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController">
+            <summary>
+            Controller for managing user accounts.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController.Register(CulinaryRecipes.Api.Controllers.UserAccounts.CreateUserAccountRequest)">
+            <summary>
+            Registers a new user account.
+            </summary>
+            <param name="request">The request containing user account details.</param>
+            <returns>The newly created user account.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController.RequestEmailConfirmation(System.String)">
+            <summary>
+            Requests email confirmation for a user account.
+            </summary>
+            <param name="email">The email address of the user.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController.ConfirmEmail(System.String,System.String)">
+            <summary>
+            Confirms the email address for a user account.
+            </summary>
+            <param name="token">The confirmation token.</param>
+            <param name="email">The email address of the user.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController.GetAll">
+            <summary>
+            Retrieves all user accounts.
+            </summary>
+            <returns>A collection of user account responses.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Api.Controllers.UserAccounts.AccountsController.Get(System.Guid)">
+            <summary>
+            Retrieves a user account by ID.
+            </summary>
+            <param name="id">The ID of the user account to retrieve.</param>
+            <returns>The user account response.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,12 +1,15 @@
 ﻿namespace CulinaryRecipes.Api.Controllers.Category;
 
-using Microsoft.AspNetCore.Mvc;
-using CulinaryRecipes.Services.Categories;
-using CulinaryRecipes.Services.Logger;
 using AutoMapper;
 using CulinaryRecipes.Common.Security;
+using CulinaryRecipes.Services.Categories;
+using CulinaryRecipes.Services.Logger;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
+/// <summary>
+/// Controller for managing categories.
+/// </summary>
 [ApiController]
 [ApiVersion("1.0")]
 [Route("v{version:apiVersion}/[controller]")]
@@ -16,6 +19,12 @@ public class CategoryController : Controller
     private readonly IAppLogger logger;
     private readonly ICategoryService categoryService;
 
+    /// <summary>
+    /// Initializes a new instance of the CategoryController class.
+    /// </summary>
+    /// <param name="logger">The logger service.</param>
+    /// <param name="categoryService">The category service.</param>
+    /// <param name="mapper">The mapper service.</param>
     public CategoryController(IAppLogger logger, ICategoryService categoryService, IMapper mapper)
     {
         this.mapper = mapper;
@@ -23,6 +32,10 @@ public class CategoryController : Controller
         this.categoryService = categoryService;
     }
 
+    /// <summary>
+    /// Gets all categories without caching.
+    /// </summary>
+    /// <returns>A collection of category responses.</returns>
     [HttpGet("uncached")]
     [Authorize(Policy = AppScopes.CategoriesRead)]
     public async Task<IEnumerable<CategoryResponse>> GetAll()
@@ -31,6 +44,10 @@ public class CategoryController : Controller
         return mapper.Map<IEnumerable<CategoryResponse>>(result);
     }
 
+    /// <summary>
+    /// Gets all categories with caching.
+    /// </summary>
+    /// <returns>A collection of category responses.</returns>
     [HttpGet("cached")]
     [Authorize(Policy = AppScopes.CategoriesRead)]
     public async Task<IEnumerable<CategoryResponse>> GetAllWithCaching()
@@ -39,6 +56,11 @@ public class CategoryController : Controller
         return mapper.Map<IEnumerable<CategoryResponse>>(result);
     }
 
+    /// <summary>
+    /// Gets a category by ID without caching.
+    /// </summary>
+    /// <param name="id">The ID of the category.</param>
+    /// <returns>The category response.</returns>
     [HttpGet("uncached/{id:Guid}")]
     [Authorize(Policy = AppScopes.CategoriesRead)]
     public async Task<IActionResult> Get([FromRoute] Guid id)
@@ -53,6 +75,11 @@ public class CategoryController : Controller
         return Ok(response);
     }
 
+    /// <summary>
+    /// Gets a category by ID with caching.
+    /// </summary>
+    /// <param name="id">The ID of the category.</param>
+    /// <returns>The category response.</returns>
     [HttpGet("cached/{id:Guid}")]
     [Authorize(Policy = AppScopes.CategoriesRead)]
     public async Task<IActionResult> GetWithCaching([FromRoute] Guid id)
@@ -67,6 +94,11 @@ public class CategoryController : Controller
         return Ok(response);
     }
 
+    /// <summary>
+    /// Creates a new category.
+    /// </summary>
+    /// <param name="request">The request to create a category.</param>
+    /// <returns>The created category response.</returns>
     [HttpPost("")]
     [Authorize(Policy = AppScopes.CategoriesWrite)]
     public async Task<CategoryResponse> Create([FromQuery] CreateCategoryRequest request)
@@ -78,6 +110,11 @@ public class CategoryController : Controller
         return response;
     }
 
+    /// <summary>
+    /// Updates a category by ID.
+    /// </summary>
+    /// <param name="id">The ID of the category.</param>
+    /// <param name="request">The request to update the category.</param>
     [HttpPut("{id:Guid}")]
     [Authorize(Policy = AppScopes.CategoriesWrite)]
     public async Task Update([FromRoute] Guid id, [FromQuery] UpdateCategoryRequest request)
@@ -85,6 +122,10 @@ public class CategoryController : Controller
         await categoryService.Update(id, mapper.Map<UpdateCategoryModel>(request));
     }
 
+    /// <summary>
+    /// Deletes a category by ID.
+    /// </summary>
+    /// <param name="id">The ID of the category.</param>
     [HttpDelete("{id:Guid}")]
     [Authorize(Policy = AppScopes.CategoriesWrite)]
     public async Task Delete([FromRoute] Guid id)

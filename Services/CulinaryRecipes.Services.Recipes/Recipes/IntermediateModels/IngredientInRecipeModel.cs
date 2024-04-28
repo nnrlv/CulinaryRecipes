@@ -5,9 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Represents an ingredient in a recipe model.
+/// </summary>
 public class IngredientInRecipeModel
 {
+    /// <summary>
+    /// The ID of the recipe.
+    /// </summary>
     public Guid RecipeId { get; set; }
+
+    /// <summary>
+    /// The ID of the ingredient.
+    /// </summary>
     public Guid IngredientId { get; set; }
 }
 

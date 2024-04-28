@@ -5,9 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Represents a category in a recipe model.
+/// </summary>
 public class CategoryInRecipeModel
 {
+    /// <summary>
+    /// The ID of the recipe.
+    /// </summary>
     public Guid RecipeId { get; set; }
+
+    /// <summary>
+    /// The ID of the category.
+    /// </summary>
     public Guid CategoryId { get; set; }
 }
 

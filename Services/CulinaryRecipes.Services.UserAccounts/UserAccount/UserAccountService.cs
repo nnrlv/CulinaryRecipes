@@ -10,6 +10,9 @@ using CulinaryRecipes.Services.EmailSender;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+/// <summary>
+/// Service for managing user accounts.
+/// </summary>
 public class UserAccountService : IUserAccountService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -33,11 +36,13 @@ public class UserAccountService : IUserAccountService
         this.action = action;
     }
 
+    /// <inheritdoc/>
     public async Task<bool> IsEmpty()
     {
         return !(await userManager.Users.AnyAsync());
     }
 
+    /// <inheritdoc/>
     public async Task<UserAccountModel> Create(CreateUserAccountModel model)
     {
         registerUserAccountModelValidator.Check(model);
@@ -63,6 +68,7 @@ public class UserAccountService : IUserAccountService
         return mapper.Map<UserAccountModel>(user);
     }
 
+    /// <inheritdoc/>
     public async Task RequestEmailConfirmation(string email)
     {
         var user = await userManager.FindByEmailAsync(email);
@@ -83,6 +89,7 @@ public class UserAccountService : IUserAccountService
         await action.SendEmail(emailModel);
     }
 
+    /// <inheritdoc/>
     public async Task ConfirmEmail(string token, string email)
     {
         var user = await userManager.FindByEmailAsync(email);
@@ -106,6 +113,7 @@ public class UserAccountService : IUserAccountService
         }
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<UserAccountModel>> GetAll()
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -119,6 +127,7 @@ public class UserAccountService : IUserAccountService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<UserAccountModel> GetById(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

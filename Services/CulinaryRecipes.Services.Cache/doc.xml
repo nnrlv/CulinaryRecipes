@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Cache</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.Cache.Bootstrapper">
+            <summary>
+            A static class for bootstrapping caching in the service collection.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.Bootstrapper.AddCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds caching services to the service collection.
+            </summary>
+            <param name="services">The IServiceCollection to add the caching services to.</param>
+            <param name="configuration">The configuration to load cache settings from.</param>
+            <returns>The modified IServiceCollection.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Cache.CacheService">
+            <summary>
+            Provides an implementation of <see cref="T:CulinaryRecipes.Services.Cache.ICacheService"/>.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Cache.CacheService.defaultLifetime">
+            <summary>
+            The default lifetime of a cache entry.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Cache.CacheService.cacheDatabase">
+            <summary>
+            The Redis database used for caching data.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Cache.CacheService.redisUri">
+            <summary>
+            The URI of the Redis server.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Cache.CacheService.LazyConnection">
+            <summary>
+            A lazily-initialized connection to the Redis server.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Cache.CacheService.Connection">
+            <summary>
+            Gets the connection to the Redis server.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.CacheService.#ctor(CulinaryRecipes.Services.Cache.CacheSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CulinaryRecipes.Services.Cache.CacheService"/> class.
+            </summary>
+            <param name="settings">The configuration settings for the cache service.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Cache.CacheSettings">
+            <summary>
+            Represents cache settings.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Cache.CacheSettings.Lifetime">
+            <summary>
+            Gets or sets cache lifetime in minutes.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.Cache.CacheSettings.Uri">
+            <summary>
+            The URI of the cache server.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Cache.ICacheService">
+            <summary>
+            Provides a cache service that can store and retrieve data using keys.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.ICacheService.GenerateKey">
+            <summary>
+            Generates a new unique key.
+            </summary>
+            <returns>A unique key.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.ICacheService.Put``1(System.String,``0,System.Nullable{System.TimeSpan})">
+            <summary>
+            Puts a data into the cache with a given key.
+            </summary>
+            <typeparam name="T">The type of data.</typeparam>
+            <param name="key">The key to use.</param>
+            <param name="data">The data to put.</param>
+            <param name="lifetime">The lifetime of the data.</param>
+            <returns>True if the data was put successfully, otherwise false.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.ICacheService.SetExpiration(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sets the expiration time of the data with the given key.
+            </summary>
+            <param name="key">The key to use.</param>
+            <param name="lifetime">The lifetime of the data.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.ICacheService.Get``1(System.String,System.Boolean)">
+            <summary>
+            Gets the data with the given key.
+            </summary>
+            <typeparam name="T">The type of data.</typeparam>
+            <param name="key">The key to use.</param>
+            <param name="resetLifetime">Whether to reset the lifetime of the data or not.</param>
+            <returns>The data if it exists, otherwise null.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Cache.ICacheService.Delete(System.String)">
+            <summary>
+            Deletes the data with the given key.
+            </summary>
+            <param name="key">The key to use.</param>
+            <returns>True if the data was deleted successfully, otherwise false.</returns>
+        </member>
+    </members>
+</doc>

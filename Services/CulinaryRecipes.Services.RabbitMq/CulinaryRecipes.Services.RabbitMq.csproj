@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="RabbitMQ.Client" Version="6.7.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="RabbitMQ.Client" Version="6.7.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Shared\CulinaryRecipes.Common\CulinaryRecipes.Common.csproj" />
+	</ItemGroup>
 
 </Project>

@@ -2,12 +2,15 @@
 using CulinaryRecipes.Common.Exceptions;
 using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
-using Microsoft.EntityFrameworkCore;
 using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
+using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Ingredients;
 
+/// <summary>
+/// Service for managing ingredients.
+/// </summary>
 public class IngredientService : IIngredientService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -30,6 +33,7 @@ public class IngredientService : IIngredientService
         this.cacheService = cacheService;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<IngredientModel>> GetAll()
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -43,6 +47,7 @@ public class IngredientService : IIngredientService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<IngredientModel>> GetAllWithCaching()
     {
         var cacheKey = "AllIngredients";
@@ -66,6 +71,7 @@ public class IngredientService : IIngredientService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IngredientModel> GetById(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -79,6 +85,7 @@ public class IngredientService : IIngredientService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IngredientModel> GetByIdWithCaching(Guid id)
     {
         var cacheKey = $"Ingredient_{id}";
@@ -102,6 +109,7 @@ public class IngredientService : IIngredientService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IngredientModel> Create(CreateIngredientModel model)
     {
         await createModelValidator.CheckAsync(model);
@@ -116,6 +124,7 @@ public class IngredientService : IIngredientService
         return mapper.Map<IngredientModel>(ingredient);
     }
 
+    /// <inheritdoc/>
     public async Task Update(Guid id, UpdateIngredientModel model)
     {
         await updateModelValidator.CheckAsync(model);
@@ -131,6 +140,7 @@ public class IngredientService : IIngredientService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task Delete(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

@@ -4,19 +4,54 @@ using FluentValidation;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Represents a model for creating a recipe.
+/// </summary>
 public class CreateRecipeModel
 {
+    /// <summary>
+    /// The name of the recipe.
+    /// </summary>
     public string Name { get; set; }
 
+    /// <summary>
+    /// The preparation time of the recipe.
+    /// </summary>
     public float PreparationTime { get; set; }
+
+    /// <summary>
+    /// The cooking time of the recipe.
+    /// </summary>
     public float CookingTime { get; set; }
 
+    /// <summary>
+    /// The description of the recipe.
+    /// </summary>
     public string Description { get; set; }
+
+    /// <summary>
+    /// The instructions for preparing the recipe.
+    /// </summary>
     public string Instructions { get; set; }
 
+    /// <summary>
+    /// The number of calories in the recipe.
+    /// </summary>
     public float Calories { get; set; }
+
+    /// <summary>
+    /// The amount of proteins in the recipe.
+    /// </summary>
     public float Proteins { get; set; }
+
+    /// <summary>
+    /// The amount of carbohydrates in the recipe.
+    /// </summary>
     public float Carbohydrates { get; set; }
+
+    /// <summary>
+    /// The amount of fats in the recipe.
+    /// </summary>
     public float Fats { get; set; }
 }
 

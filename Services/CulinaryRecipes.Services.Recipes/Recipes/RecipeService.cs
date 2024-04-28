@@ -1,13 +1,16 @@
 ﻿using AutoMapper;
+using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
 using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
-using Microsoft.EntityFrameworkCore;
-using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Services.Subscriptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Recipes;
 
+/// <summary>
+/// Service for managing recipes.
+/// </summary>
 public class RecipeService : IRecipeService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -33,6 +36,7 @@ public class RecipeService : IRecipeService
         this.subscriptionService = subscriptionService;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<ShortRecipeModel>> GetAllShortRecipes()
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -44,6 +48,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<ShortRecipeModel>> GetAllShortRecipesWithCaching()
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -65,6 +70,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<ShortRecipeModel>> GetFilteredShortRecipesWithCaching(
         string? userName,
         float? minPreparationTime,
@@ -131,9 +137,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
-
-
-
+    /// <inheritdoc/>
     public async Task<ShortRecipeModel> GetShortRecipeById(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -145,6 +149,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<ShortRecipeModel> GetShortRecipeByIdWithCaching(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -166,6 +171,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<FullRecipeModel> GetFullRecipeById(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -197,6 +203,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<FullRecipeModel> GetFullRecipeByIdWithCaching(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -238,6 +245,7 @@ public class RecipeService : IRecipeService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<IngredientInRecipeModel>> GetIngredientsOfRecipe(Guid recipeId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -255,6 +263,7 @@ public class RecipeService : IRecipeService
         return data;
     }
 
+    /// <inheritdoc/>
     public async Task<ShortRecipeModel> Create(CreateRecipeModel model, string userId)
     {
         createModelValidator.CheckAsync(model);
@@ -276,6 +285,7 @@ public class RecipeService : IRecipeService
         return mapper.Map<ShortRecipeModel>(recipe);
     }
 
+    /// <inheritdoc/>
     public async Task<IngredientInRecipeModel> AddIngredientInRecipe(Guid recipeId, Guid ingredientId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -300,6 +310,7 @@ public class RecipeService : IRecipeService
         return data;
     }
 
+    /// <inheritdoc/>
     public async Task<CategoryInRecipeModel> AddCategoryToRecipe(Guid recipeId, Guid categoryId)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();
@@ -324,6 +335,7 @@ public class RecipeService : IRecipeService
         return data;
     }
 
+    /// <inheritdoc/>
     public async Task Update(Guid id, UpdateRecipeModel model)
     {
         updateModelValidator.Check(model);
@@ -339,6 +351,7 @@ public class RecipeService : IRecipeService
         await context.SaveChangesAsync();
     }
 
+    /// <inheritdoc/>
     public async Task Delete(Guid id)
     {
         await using var context = await dbContextFactory.CreateDbContextAsync();

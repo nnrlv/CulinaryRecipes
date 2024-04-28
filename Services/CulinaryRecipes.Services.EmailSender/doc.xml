@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.EmailSender</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.EmailSender.EmailSender">
+            <summary>
+            Service for sending emails.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.EmailSender.EmailSender.SendEmailAsync(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CulinaryRecipes.Services.EmailSender.EmailSenderSettings">
+            <summary>
+            Settings for the email sender.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailSenderSettings.Email">
+            <summary>
+            Email address.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailSenderSettings.Password">
+            <summary>
+            Email password.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailSenderSettings.Host">
+            <summary>
+            Email host.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:CulinaryRecipes.Services.EmailSender.EmailSenderSettings.Port" -->
+        <member name="T:CulinaryRecipes.Services.EmailSender.IEmailSender">
+            <summary>
+            Represents an interface for sending emails.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.EmailSender.IEmailSender.SendEmailAsync(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <summary>
+            Sends an email asynchronously.
+            </summary>
+            <param name="email">The email model.</param>
+        </member>
+        <member name="T:CulinaryRecipes.Services.EmailSender.EmailModel">
+            <summary>
+            Represents an email model for sending emails.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailModel.Email">
+            <summary>
+            The email address.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailModel.Subject">
+            <summary>
+            The email subject.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Services.EmailSender.EmailModel.Message">
+            <summary>
+            The email message.
+            </summary>
+        </member>
+    </members>
+</doc>

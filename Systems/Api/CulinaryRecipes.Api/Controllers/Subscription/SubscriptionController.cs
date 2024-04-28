@@ -23,6 +23,9 @@ public class SubscriptionController : Controller
         this.subscriptionService = subscriptionService;
     }
 
+    /// <summary>
+    /// Subscribes a user to another user.
+    /// </summary>
     [HttpPost("user")]
     [Authorize(Policy = AppScopes.Subscribe)]
     public async Task<ActionResult> SubscribeToUser([FromQuery] Guid subscriberId, [FromQuery] Guid authorId)
@@ -31,6 +34,9 @@ public class SubscriptionController : Controller
         return Ok();
     }
 
+    /// <summary>
+    /// Unsubscribes a user from another user.
+    /// </summary>
     [HttpDelete("user")]
     [Authorize(Policy = AppScopes.Subscribe)]
     public async Task<ActionResult> UnsuscribeFromUser([FromQuery] Guid subscriberId, [FromQuery] Guid authorId)
@@ -39,6 +45,9 @@ public class SubscriptionController : Controller
         return Ok();
     }
 
+    /// <summary>
+    /// Subscribes a user to a recipe.
+    /// </summary>
     [HttpPost("recipe")]
     [Authorize(Policy = AppScopes.Subscribe)]
     public async Task<ActionResult> SubscribeToRecipe([FromQuery] Guid subscriberId, [FromQuery] Guid recipeId)
@@ -46,7 +55,9 @@ public class SubscriptionController : Controller
         await subscriptionService.SubscribeToRecipe(subscriberId, recipeId);
         return Ok();
     }
-
+    /// <summary>
+    /// Unsubscribes a user from a recipe.
+    /// </summary>
     [HttpDelete("recipe")]
     [Authorize(Policy = AppScopes.Subscribe)]
     public async Task<ActionResult> UnsuscribeFromRecipe([FromQuery] Guid subscriberId, [FromQuery] Guid recipeId)

@@ -2,13 +2,18 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Migrations.Internal;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 
+/// <summary>
+/// A factory for creating instances of the MainDbContext class at design time.
+/// </summary>
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MainDbContext>
 {
-
+    /// <summary>
+    /// Creates a new instance of the MainDbContext class.
+    /// </summary>
+    /// <param name="args">Command-line arguments.</param>
+    /// <returns>A new instance of the MainDbContext class.</returns>
     public MainDbContext CreateDbContext(string[] args)
     {
         var provider = (args?[0] ?? $"{DbType.MSSQL}").ToLower();

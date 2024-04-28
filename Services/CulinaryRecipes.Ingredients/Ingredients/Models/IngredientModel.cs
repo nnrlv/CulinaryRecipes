@@ -5,16 +5,44 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Ingredients;
 
+/// <summary>
+/// Represents a model for an ingredient.
+/// </summary>
 public class IngredientModel
 {
+    /// <summary>
+    /// The ID of the ingredient.
+    /// </summary>
     public Guid Id { get; set; }
 
+    /// <summary>
+    /// The name of the ingredient.
+    /// </summary>
     public string Name { get; set; }
+
+    /// <summary>
+    /// The unit of measurement for the ingredient.
+    /// </summary>
     public string UnitOfMeasurement { get; set; }
 
+    /// <summary>
+    /// The number of calories per unit of the ingredient.
+    /// </summary>
     public float Calories { get; set; }
+
+    /// <summary>
+    /// The amount of proteins per unit of the ingredient.
+    /// </summary>
     public float Proteins { get; set; }
+
+    /// <summary>
+    /// The amount of carbohydrates per unit of the ingredient.
+    /// </summary>
     public float Carbohydrates { get; set; }
+
+    /// <summary>
+    /// The amount of fats per unit of the ingredient.
+    /// </summary>
     public float Fats { get; set; }
 }
 

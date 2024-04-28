@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Subscriptions</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.Subscriptions.ISubscriptionService">
+            <summary>
+            Interface for a service for managing subscriptions.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.SubscribeToUser(System.Guid,System.Guid)">
+            <summary>
+            Subscribes a user to another user.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.UnsubscribeFromUser(System.Guid,System.Guid)">
+            <summary>
+            Unsubscribes a user from another user.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.SubscribeToRecipe(System.Guid,System.Guid)">
+            <summary>
+            Subscribes a user to a recipe.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.UnsubscribeFromRecipe(System.Guid,System.Guid)">
+            <summary>
+            Unsubscribes a user from a recipe.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.SendEmailToUserSubscribersAboutNewRecipe(System.Guid,System.String)">
+            <summary>
+            Sends an email to the subscribers of a user about a new recipe.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.ISubscriptionService.SendEmailToRecipeSubscribersAboutNewComment(System.Guid)">
+            <summary>
+            Sends an email to the subscribers of a recipe about a new comment.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Subscriptions.SubscriptionService">
+            <summary>
+            Service for managing subscriptions.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.SubscribeToUser(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.UnsubscribeFromUser(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.SubscribeToRecipe(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.UnsubscribeFromRecipe(System.Guid,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.SendEmailToUserSubscribersAboutNewRecipe(System.Guid,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Subscriptions.SubscriptionService.SendEmailToRecipeSubscribersAboutNewComment(System.Guid)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

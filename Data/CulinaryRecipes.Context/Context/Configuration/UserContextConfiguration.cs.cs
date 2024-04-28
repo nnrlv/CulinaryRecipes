@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 public static class UserContextConfiguration
 {
+    /// <summary>
+    /// Configures the relationships and table mapping for the User entity.
+    /// </summary>
+    /// <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
     public static void ConfigureUsers(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>().ToTable("users");

@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Context.Entities</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Context.Entities.Category">
+            <summary>
+            Represents a category for recipes.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Category.Name">
+            <summary>
+            The name of the category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Category.CategoryId">
+            <summary>
+            The ID of the parent category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Category.ParentCategory">
+            <summary>
+            The parent category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Category.Categories">
+            <summary>
+            The subcategories of this category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Category.RecipesInCategories">
+            <summary>
+            The recipes associated with this category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.BaseEntity.Id">
+            <summary>
+            The unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.BaseEntity.Uid">
+            <summary>
+            The globally unique identifier (GUID) for the entity.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.Ingredient">
+            <summary>
+            Represents an ingredient that can be used in recipes.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.Name">
+            <summary>
+            The name of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.UnitOfMeasurement">
+            <summary>
+            The unit of measurement for the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.Calories">
+            <summary>
+            The number of calories per unit of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.Proteins">
+            <summary>
+            The amount of proteins per unit of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.Carbohydrates">
+            <summary>
+            The amount of carbohydrates per unit of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.Fats">
+            <summary>
+            The amount of fats per unit of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Ingredient.IngredientsInRecipe">
+            <summary>
+            The recipes that use this ingredient.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.IngredientInRecipe">
+            <summary>
+            Represents an ingredient used in a recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.IngredientInRecipe.RecipeId">
+            <summary>
+            The ID of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.IngredientInRecipe.Recipe">
+            <summary>
+            The recipe that the ingredient belongs to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.IngredientInRecipe.IngredientId">
+            <summary>
+            The ID of the ingredient.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.IngredientInRecipe.Ingredient">
+            <summary>
+            The ingredient in the recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.Recipe">
+            <summary>
+            Represents a recipe entity.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.UserId">
+            <summary>
+            The ID of the user who created the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.User">
+            <summary>
+            The user who created the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Name">
+            <summary>
+            The name of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.PreparationTime">
+            <summary>
+            The preparation time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.CookingTime">
+            <summary>
+            The cooking time of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Description">
+            <summary>
+            The description of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Instructions">
+            <summary>
+            The instructions for preparing the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Calories">
+            <summary>
+            The number of calories in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Proteins">
+            <summary>
+            The amount of proteins in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Carbohydrates">
+            <summary>
+            The amount of carbohydrates in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Fats">
+            <summary>
+            The amount of fats in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.IngredientsInRecipe">
+            <summary>
+            The ingredients used in the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.RecipesInCategories">
+            <summary>
+            The categories recipe belongs to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.Comments">
+            <summary>
+            The comments written under this recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.Recipe.RecipeSubscriptions">
+            <summary>
+            The subscriptions to this recipe.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.RecipeInCategory">
+            <summary>
+            Represents a mapping between a recipe and a category it belongs to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeInCategory.RecipeId">
+            <summary>
+            The ID of the recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeInCategory.Recipe">
+            <summary>
+            The recipe.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeInCategory.CategoryId">
+            <summary>
+            The ID of the category.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeInCategory.Category">
+            <summary>
+            The category.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.RecipeSubscription">
+            <summary>
+            Represents a subscription to a recipe, linking a subscriber to the recipe they are subscribed to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeSubscription.SubscriberId">
+            <summary>
+            The ID of the subscriber.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeSubscription.Subscriber">
+            <summary>
+            The subscriber entity.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeSubscription.RecipeId">
+            <summary>
+            The ID of the recipe being subscribed to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.RecipeSubscription.Recipe">
+            <summary>
+            The recipe entity being subscribed to.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.UserSubscription">
+            <summary>
+            Represents a user subscription, linking a subscriber to an author they are subscribed to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.UserSubscription.SubscriberId">
+            <summary>
+            The ID of the subscriber.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.UserSubscription.AuthorId">
+            <summary>
+            The ID of the author being subscribed to.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.UserSubscription.Author">
+            <summary>
+            The author entity being subscribed to.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Context.Entities.User">
+            <summary>
+            Represents a user in the system.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.EntryId">
+            <summary>
+            The ID of the user's entry.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.Name">
+            <summary>
+            The name of the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.Status">
+            <summary>
+            The status of the user (active/blocked).
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.Recipes">
+            <summary>
+            The recipes authored by the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.Comments">
+            <summary>
+            The comments authored by the user.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.UserSubscriptions">
+            <summary>
+            The authors that user subscribed.
+            </summary>
+        </member>
+        <member name="P:CulinaryRecipes.Context.Entities.User.RecipeSubscriptions">
+            <summary>
+            The recipes that user subscribed.
+            </summary>
+        </member>
+        <member name="T:Comment">
+            <summary>
+            Represents a comment made by a user on a recipe.
+            </summary>
+        </member>
+        <member name="P:Comment.UserId">
+            <summary>
+            The ID of the user who made the comment.
+            </summary>
+        </member>
+        <member name="P:Comment.User">
+            <summary>
+            The user who made the comment.
+            </summary>
+        </member>
+        <member name="P:Comment.RecipeId">
+            <summary>
+            The ID of the recipe the comment is for.
+            </summary>
+        </member>
+        <member name="P:Comment.Recipe">
+            <summary>
+            The recipe the comment is for.
+            </summary>
+        </member>
+        <member name="P:Comment.Text">
+            <summary>
+            The text of the comment.
+            </summary>
+        </member>
+    </members>
+</doc>

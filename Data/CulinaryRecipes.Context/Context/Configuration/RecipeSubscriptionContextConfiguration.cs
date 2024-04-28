@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 public static class RecipeSubscriptionContextConfiguration
 {
+    /// <summary>
+    /// Configures the relationships and table mapping for the RecipeSubscription entity.
+    /// </summary>
+    /// <param name="modelBuilder">The ModelBuilder instance used to build the EF Core model.</param>
     public static void ConfigureRecipeSubscriptions(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<RecipeSubscription>().ToTable("recipe_subscriptions");

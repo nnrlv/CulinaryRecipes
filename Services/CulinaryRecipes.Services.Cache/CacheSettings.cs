@@ -11,7 +11,7 @@ public class CacheSettings
     public int Lifetime { get; private set; }
 
     /// <summary>
-    /// Gets or sets the URI of the cache server.
+    /// The URI of the cache server.
     /// </summary>
     public string? Uri { get; private set; }
 }

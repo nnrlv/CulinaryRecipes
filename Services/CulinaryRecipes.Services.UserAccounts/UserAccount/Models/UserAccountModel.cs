@@ -3,10 +3,24 @@
 using AutoMapper;
 using CulinaryRecipes.Context.Entities;
 
+/// <summary>
+/// Represents a user account model.
+/// </summary>
 public class UserAccountModel
 {
+    /// <summary>
+    /// The ID of the user account.
+    /// </summary>
     public Guid Id { get; set; }
+
+    /// <summary>
+    /// The name of the user.
+    /// </summary>
     public string Name { get; set; }
+
+    /// <summary>
+    /// The email address of the user.
+    /// </summary>
     public string Email { get; set; }
 }
 

@@ -2,13 +2,15 @@
 using CulinaryRecipes.Common.Exceptions;
 using CulinaryRecipes.Common.Validator;
 using CulinaryRecipes.Context;
-using CulinaryRecipes.Context.Entities;
 using CulinaryRecipes.Services.Cache;
 using CulinaryRecipes.Services.Subscriptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Comments;
 
+/// <summary>
+/// Service for managing comments.
+/// </summary>
 public class CommentService : ICommentService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
@@ -31,6 +33,7 @@ public class CommentService : ICommentService
         this.subscriptionService = subscriptionService;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CommentModel>> GetAllByRecipeId(Guid recipeId)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -47,6 +50,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CommentModel>> GetAllByRecipeIdWithCaching(Guid recipeId)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -73,6 +77,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CommentModel>> GetAllByUserId(Guid userId)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -89,6 +94,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<IEnumerable<CommentModel>> GetAllByUserIdWithCaching(Guid userId)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -115,6 +121,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CommentModel> GetById(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -130,6 +137,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CommentModel> GetByIdWithCaching(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
@@ -155,6 +163,7 @@ public class CommentService : ICommentService
         return result;
     }
 
+    /// <inheritdoc/>
     public async Task<CommentModel> Create(CreateCommentModel model)
     {
         await createModelValidator.CheckAsync(model);
@@ -173,6 +182,7 @@ public class CommentService : ICommentService
         return mapper.Map<CommentModel>(comment);
     }
 
+    /// <inheritdoc/>
     public async Task Delete(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

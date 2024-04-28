@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CulinaryRecipes.Services.Actions</name>
+    </assembly>
+    <members>
+        <member name="T:CulinaryRecipes.Services.Actions.Action">
+            <summary>
+            Represents an action to be performed, such as sending emails.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.Action.#ctor(CulinaryRecipes.Services.RabbitMq.IRabbitMq)">
+            <summary>
+            Initializes a new instance of the Action class with the specified RabbitMQ service.
+            </summary>
+            <param name="rabbitMq">The RabbitMQ service.</param>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.Action.SendEmail(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.Action.SendNewRecipeFromUserSubscriptionInfo(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.Action.SendNewCommentFromRecipeSubscriptionInfo(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <inheritdoc/>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Actions.QueueNames">
+            <summary>
+            Provides queue names for different actions.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Actions.QueueNames.SEND_EMAIL">
+            <summary>
+            The queue name for sending user verification emails.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Actions.QueueNames.SEND_EMAIL_USER_SUBSCRIPTION">
+            <summary>
+            The queue name for sending notification about new recipes on the user subscriptions.
+            </summary>
+        </member>
+        <member name="F:CulinaryRecipes.Services.Actions.QueueNames.SEND_EMAIL_RECIPE_SUBSCRIPTION">
+            <summary>
+            The queue name for sending notification about new comments on the recipe subscriptions.
+            </summary>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Actions.IAction">
+            <summary>
+            Represents an action to be performed, such as sending emails.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.IAction.SendEmail(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <summary>
+            Sends an email.
+            </summary>
+            <param name="model">The email model.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.IAction.SendNewRecipeFromUserSubscriptionInfo(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <summary>
+            Sends a new recipe notification based on user subscription information.
+            </summary>
+            <param name="model">The email model.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.IAction.SendNewCommentFromRecipeSubscriptionInfo(CulinaryRecipes.Services.EmailSender.EmailModel)">
+            <summary>
+            Sends a new comment notification based on recipe subscription information.
+            </summary>
+            <param name="model">The email model.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:CulinaryRecipes.Services.Actions.Bootstrapper">
+            <summary>
+            A static class for bootstrapping actions in the service collection.
+            </summary>
+        </member>
+        <member name="M:CulinaryRecipes.Services.Actions.Bootstrapper.AddActions(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds actions to the service collection.
+            </summary>
+            <param name="services">The IServiceCollection to add the actions to.</param>
+            <returns>The modified IServiceCollection.</returns>
+        </member>
+    </members>
+</doc>

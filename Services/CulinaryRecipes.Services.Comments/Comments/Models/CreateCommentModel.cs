@@ -1,16 +1,28 @@
 ﻿using AutoMapper;
 using CulinaryRecipes.Context;
-using CulinaryRecipes.Context.Entities;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 namespace CulinaryRecipes.Services.Comments;
 
+/// <summary>
+/// Represents a model for creating a comment.
+/// </summary>
 public class CreateCommentModel
 {
+    /// <summary>
+    /// The ID of the user who posted the comment.
+    /// </summary>
     public Guid UserId { get; set; }
+
+    /// <summary>
+    /// The ID of the recipe the comment belongs to.
+    /// </summary>
     public Guid RecipeId { get; set; }
 
+    /// <summary>
+    /// The text of the comment.
+    /// </summary>
     public string Text { get; set; }
 }
 
